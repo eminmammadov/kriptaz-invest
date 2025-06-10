@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { HeroProps } from '@/types/hero';
 import styles from './Hero.module.css';
 
@@ -21,7 +22,6 @@ const Hero: React.FC<HeroProps> = ({
   onVideoError
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
 
 
@@ -30,7 +30,6 @@ const Hero: React.FC<HeroProps> = ({
     if (!video) return;
 
     const handleLoadedData = () => {
-      setVideoLoaded(true);
       onVideoLoad?.();
     };
 
@@ -134,11 +133,13 @@ const Hero: React.FC<HeroProps> = ({
         )}
 
         {/* Video Overlay Image */}
-        <img
+        <Image
           src={videoOverlayImage}
           alt=""
+          fill
           className={styles.videoOverlayImage}
           aria-hidden="true"
+          priority={false}
         />
 
         {/* Video Filters */}
