@@ -3,6 +3,7 @@
 
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
+import { Cookies } from '@/components/Cookies';
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -28,6 +29,11 @@ export default function Home() {
     console.error('Hero video failed to load:', error);
   };
 
+  const handleCookiesAccept = () => {
+    console.log('Cookies accepted');
+    // Add any additional logic when cookies are accepted
+  };
+
   return (
     <div className="min-h-screen">
       <Header
@@ -39,6 +45,11 @@ export default function Home() {
       <Hero
         onVideoLoad={handleVideoLoad}
         onVideoError={handleVideoError}
+      />
+
+      {/* Cookies Banner */}
+      <Cookies
+        onAccept={handleCookiesAccept}
       />
     </div>
   );

@@ -36,6 +36,7 @@
   overflow: hidden;
   /* Ensure container maintains proper dimensions for SVG scaling */
   display: block;
+  border-radius: 8px;
 }
 
 .videoBackground {
