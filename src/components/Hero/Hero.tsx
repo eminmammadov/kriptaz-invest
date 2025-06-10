@@ -1,19 +1,17 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { HeroProps } from '@/types/hero';
 import styles from './Hero.module.css';
 
 /**
- * Hero component with video background
- * Displays main heading and two-column descriptive text
- * Responsive design with accessibility features
+ * Hero component with video background and content section
+ * Follows the established React TypeScript patterns and CSS Modules styling
  */
 const Hero: React.FC<HeroProps> = ({
   className = '',
-  videoSrc = '/video/hero-video.mp4',
-  backgroundImage,
+  videoSrc = '/videos/hero-video.mp4',
   videoOverlayImage = '/images/video-filter.svg',
   title = 'Build Your Noble Legacy for Generations to Come',
   leftText = 'Grand Founders is an economic development and national security foundation that makes impact investments and supports emerging entrepreneurs globally, ensuring a noble legacy for generations to come.',
@@ -22,8 +20,6 @@ const Hero: React.FC<HeroProps> = ({
   onVideoError
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoError, setVideoError] = useState(false);
-
 
   useEffect(() => {
     const video = videoRef.current;
@@ -33,77 +29,26 @@ const Hero: React.FC<HeroProps> = ({
       onVideoLoad?.();
     };
 
-    const handleCanPlay = () => {
-      // Attempt to play the video
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Video autoplay successful
-          })
-          .catch((error) => {
-            console.warn('Hero video autoplay failed:', error);
-            // Try to play without sound as fallback
-            video.muted = true;
-            video.play().catch((err) => {
-              console.error('Hero video play failed even when muted:', err);
-            });
-          });
-      }
-    };
-
     const handleError = (error: Event) => {
-      console.error('Hero video error:', error);
-      setVideoError(true);
+      console.error('Hero video failed to load:', error);
       onVideoError?.(error);
     };
 
-    // Add essential event listeners
     video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('error', handleError);
-
-    // Force load the video
-    video.load();
 
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('error', handleError);
     };
   }, [onVideoLoad, onVideoError]);
 
   return (
-    <section
-      className={`${styles.hero} ${className}`}
-      role="banner"
-      aria-label="Hero section with company mission"
-    >
-      {/* Background Section with Video */}
-      <div
-        className={styles.backgroundSection}
-        style={{
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined
-        }}
-      >
-        {/* Fallback background image when video fails */}
-        {videoError && backgroundImage && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              zIndex: 1
-            }}
-          />
-        )}
-
-        {!videoError && (
+    <section className={`${styles.heroSection} ${className}`} role="banner">
+      {/* Video Background Section */}
+      <div className={styles.videoSection}>
+        <div className={styles.videoContainer}>
+          {/* Background Video */}
           <video
             ref={videoRef}
             className={styles.videoBackground}
@@ -116,53 +61,52 @@ const Hero: React.FC<HeroProps> = ({
             disablePictureInPicture
             disableRemotePlayback
             aria-hidden="true"
-
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              backgroundColor: '#000'
-            }}
+            data-testid="hero-video"
           >
             <source src={videoSrc} type="video/mp4" />
             <source src={videoSrc.replace('.mp4', '.webm')} type="video/webm" />
             <source src={videoSrc.replace('.mp4', '.ogv')} type="video/ogg" />
-            {/* Fallback for browsers that don't support video */}
             Your browser does not support the video tag.
           </video>
-        )}
 
-        {/* Video Overlay Image */}
-        <Image
-          src={videoOverlayImage}
-          alt=""
-          fill
-          className={styles.videoOverlayImage}
-          aria-hidden="true"
-          priority={false}
-        />
+          {/* SVG Overlay */}
+          {videoOverlayImage && (
+            <Image
+              src={videoOverlayImage}
+              alt=""
+              fill
+              className={styles.videoOverlayImage}
+              aria-hidden="true"
+              priority
+            />
+          )}
 
-        {/* Video Filters */}
-        <div className={styles.videoFilters} aria-hidden="true" />
-
-        <div className={styles.backgroundOverlay} aria-hidden="true" />
+          {/* Video Overlay for Better Text Contrast */}
+          <div className={styles.videoOverlay} aria-hidden="true" />
+        </div>
       </div>
 
       {/* Content Section */}
       <div className={styles.contentSection}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>
-            {title}
-          </h1>
+        <div className={styles.contentContainer}>
+          {/* Top Decorative Line */}
+          <div className={styles.decorativeLine} aria-hidden="true" />
 
-          <div className={styles.textContainer}>
+          {/* Main Title */}
+          <h1 className={styles.heroTitle}>{title}</h1>
+
+          {/* Two-Column Text Layout */}
+          <div className={styles.textColumns}>
             <div className={styles.textColumn}>
-              <p>{leftText}</p>
+              <p className={styles.columnText}>{leftText}</p>
             </div>
             <div className={styles.textColumn}>
-              <p>{rightText}</p>
+              <p className={styles.columnText}>{rightText}</p>
             </div>
           </div>
+
+          {/* Bottom Decorative Line */}
+          <div className={styles.decorativeLine} aria-hidden="true" />
         </div>
       </div>
     </section>

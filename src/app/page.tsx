@@ -35,6 +35,7 @@ export default function Home() {
         onJoinClick={handleJoinClick}
         onLogoClick={handleLogoClick}
       />
+
       <Hero
         onVideoLoad={handleVideoLoad}
         onVideoError={handleVideoError}

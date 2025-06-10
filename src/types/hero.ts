@@ -3,7 +3,6 @@
 export interface HeroProps {
   className?: string;
   videoSrc?: string;
-  backgroundImage?: string;
   videoOverlayImage?: string;
   title?: string;
   leftText?: string;
