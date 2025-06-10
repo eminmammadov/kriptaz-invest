@@ -102,18 +102,30 @@ const Header: React.FC<HeaderProps> = ({
             className={styles.buttonsContainer}
           />
 
-          {/* Mobile Menu Button - 2-line hamburger with X animation */}
-          <button
-            onClick={toggleMobileMenu}
-            className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.mobileMenuButtonOpen : ''}`}
-            aria-expanded={isMobileMenuOpen}
-            aria-label="Toggle mobile menu"
-          >
-            <div className={styles.hamburgerIcon}>
-              <span className={`${styles.hamburgerLine} ${styles.hamburgerLineTop}`}></span>
-              <span className={`${styles.hamburgerLine} ${styles.hamburgerLineBottom}`}></span>
-            </div>
-          </button>
+          {/* Mobile Buttons Group - JOIN and Hamburger Menu */}
+          <div className={styles.mobileButtonsGroup}>
+            {/* Mobile Join Button - Visible only on mobile */}
+            <button
+              onClick={handleJoinClick}
+              className={styles.mobileJoinButton}
+              aria-label="Join our community"
+            >
+              JOIN
+            </button>
+
+            {/* Mobile Menu Button - 2-line hamburger with X animation */}
+            <button
+              onClick={toggleMobileMenu}
+              className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.mobileMenuButtonOpen : ''}`}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Toggle mobile menu"
+            >
+              <div className={styles.hamburgerIcon}>
+                <span className={`${styles.hamburgerLine} ${styles.hamburgerLineTop}`}></span>
+                <span className={`${styles.hamburgerLine} ${styles.hamburgerLineBottom}`}></span>
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

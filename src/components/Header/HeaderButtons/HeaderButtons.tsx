@@ -27,14 +27,16 @@ const HeaderButtons: React.FC<HeaderButtonsProps> = ({
         PORTFOLIO
       </button>
 
-      {/* Join Now Button - Accent Green Style */}
-      <button
-        onClick={onJoinClick}
-        className={`${styles.button} ${styles.joinButton}`}
-        aria-label="Join our community"
-      >
-        JOIN
-      </button>
+      {/* Join Now Button - Only show on desktop, hidden in mobile dropdown */}
+      {!isMobile && (
+        <button
+          onClick={onJoinClick}
+          className={`${styles.button} ${styles.joinButton}`}
+          aria-label="Join our community"
+        >
+          JOIN
+        </button>
+      )}
     </div>
   );
 };

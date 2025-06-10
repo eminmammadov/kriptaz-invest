@@ -57,6 +57,47 @@
   }
 }
 
+/* Mobile Join Button - Visible only on mobile screens */
+.mobileJoinButton {
+  display: block;
+  background-color: var(--color-accent-green);
+  color: var(--color-primary-black);
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-header);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
+  margin-right: 0; /* No margin needed - spacing handled by container gap */
+}
+
+.mobileJoinButton:hover {
+  background-color: var(--color-primary-black);
+  color: var(--color-accent-green);
+}
+
+@media (min-width: 768px) {
+  .mobileJoinButton {
+    display: none;
+  }
+}
+
+/* Mobile buttons container for better grouping */
+.mobileButtonsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem; /* Consistent spacing between mobile buttons */
+}
+
+@media (min-width: 768px) {
+  .mobileButtonsGroup {
+    display: none;
+  }
+}
+
 .mobileMenuButton {
   display: block;
   padding: 0.5rem;
