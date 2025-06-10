@@ -4,6 +4,7 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Cookies } from '@/components/Cookies';
+import { ProjectSlider, ProjectLogo } from '@/components/ProjectSlider';
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -34,6 +35,11 @@ export default function Home() {
     // Add any additional logic when cookies are accepted
   };
 
+  const handleProjectLogoClick = (logo: ProjectLogo) => {
+    console.log('Project logo clicked:', logo.name);
+    // Add any additional logic when a project logo is clicked
+  };
+
   return (
     <div className="min-h-screen">
       <Header
@@ -45,6 +51,11 @@ export default function Home() {
       <Hero
         onVideoLoad={handleVideoLoad}
         onVideoError={handleVideoError}
+      />
+
+      {/* Project Partners Slider */}
+      <ProjectSlider
+        onLogoClick={handleProjectLogoClick}
       />
 
       {/* Cookies Banner */}

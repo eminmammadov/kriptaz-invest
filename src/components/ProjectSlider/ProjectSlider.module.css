@@ -1,0 +1,166 @@
+/* ProjectSlider Component Styles */
+
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-light-gray);
+  position: relative;
+  border-top: .5rem solid var(--color-gold);
+  border-bottom: .5rem solid var(--color-gold);
+}
+
+.sliderTrack {
+  display: flex;
+  align-items: center;
+  animation: slideLeft var(--animation-duration, 30s) linear infinite;
+  width: fit-content;
+  gap: var(--logo-spacing, 3rem);
+}
+
+.sliderTrack.paused {
+  animation-play-state: paused;
+}
+
+/* Keyframe animation for continuous left scroll */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logoItem {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.logoItem:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logoImage {
+  height: var(--logo-height, 3rem);
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%); /* Makes SVG black */
+  transition: all 0.3s ease-in-out;
+}
+
+.logoItem:hover .logoImage {
+  filter: brightness(0) saturate(100%) contrast(1.2);
+}
+
+/* Responsive logo sizing */
+@media (max-width: 768px) {
+  .sliderContainer {
+    padding: 1.5rem 0;
+  }
+  
+  .logoImage {
+    height: var(--logo-height-mobile, 2rem);
+  }
+  
+  .sliderTrack {
+    gap: var(--logo-spacing-mobile, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .sliderContainer {
+    padding: 1rem 0;
+  }
+  
+  .logoImage {
+    height: var(--logo-height-mobile, 1.5rem);
+  }
+  
+  .sliderTrack {
+    gap: var(--logo-spacing-mobile, 1.5rem);
+  }
+}
+
+/* Accessibility - Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .sliderTrack {
+    animation: none;
+  }
+  
+  .logoItem:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sliderContainer {
+    background-color: var(--color-white);
+    border-top: 2px solid var(--color-primary-black);
+    border-bottom: 2px solid var(--color-primary-black);
+  }
+  
+  .logoItem:hover {
+    background-color: var(--color-light-gray);
+    border: 2px solid var(--color-primary-black);
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.logoItem:focus {
+  outline: 1px solid var(--color-accent-green);
+  outline-offset: 1px;
+  background-color: rgba(153, 255, 153, 0.1);
+}
+
+/* Gradient fade effects on edges */
+.sliderContainer::before,
+.sliderContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.sliderContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-light-gray), transparent);
+}
+
+.sliderContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-light-gray), transparent);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .sliderContainer {
+    background-color: var(--color-gold);
+  }
+  
+  .sliderContainer::before {
+    background: linear-gradient(to right, var(--color-gold), transparent);
+  }
+  
+  .sliderContainer::after {
+    background: linear-gradient(to left, var(--color-gold), transparent);
+  }
+  
+  .logoImage {
+    filter: brightness(0) saturate(100%) invert(1); /* Makes SVG white in dark mode */
+  }
+  
+  .logoItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
