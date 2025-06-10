@@ -43,6 +43,12 @@
   position: relative; /* Required for ::after pseudo-element positioning */
 }
 
+@media (max-width: 900px) {
+  .navigationButton {
+    padding: 0.5rem;
+  }
+}
+
 /* Desktop hover underline animation - only for desktop navigation */
 @media (min-width: 768px) {
   .navigation .navigationButton::after {

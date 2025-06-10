@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { HeroProps } from '@/types/hero';
 import styles from './Hero.module.css';
@@ -20,6 +20,28 @@ const Hero: React.FC<HeroProps> = ({
   onVideoError
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobileSmall, setIsMobileSmall] = useState(false);
+
+  // Hook to detect screen size for mobile-specific SVG
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileSmall(window.innerWidth <= 320);
+    };
+
+    // Check initial screen size
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup event listener
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Determine which SVG overlay to use based on screen size
+  const currentOverlayImage = isMobileSmall
+    ? '/images/video-filter-mobile.svg'
+    : videoOverlayImage;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -69,13 +91,13 @@ const Hero: React.FC<HeroProps> = ({
             Your browser does not support the video tag.
           </video>
 
-          {/* SVG Overlay */}
-          {videoOverlayImage && (
+          {/* SVG Overlay - Responsive based on screen size */}
+          {currentOverlayImage && (
             <Image
-              src={videoOverlayImage}
+              src={currentOverlayImage}
               alt=""
               fill
-              className={styles.videoOverlayImage}
+              className={`${styles.videoOverlayImage} ${isMobileSmall ? styles.mobileOverlay : ''}`}
               aria-hidden="true"
               priority
             />
