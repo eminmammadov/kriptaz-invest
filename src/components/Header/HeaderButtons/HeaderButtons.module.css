@@ -1,0 +1,53 @@
+/* HeaderButtons Component Styles */
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-primary);
+}
+
+.button {
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  border-radius: 0; /* No border radius as requested */
+  font-family: var(--font-primary);
+}
+
+
+
+.donateButton {
+  background-color: var(--color-primary-black);
+  color: var(--color-white);
+}
+
+.donateButton:hover {
+  color: var(--color-accent-green);
+}
+
+.joinButton {
+  background-color: var(--color-accent-green);
+  color: var(--color-primary-black);
+}
+
+.joinButton:hover {
+  background-color: var(--color-primary-black); /* Slightly darker green */
+  color: var(--color-accent-green);
+}
+
+/* Mobile layout adjustments */
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobileContainer .button {
+  width: 100%;
+  text-align: center;
+}

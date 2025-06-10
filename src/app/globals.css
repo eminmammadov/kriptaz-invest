@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color System */
+  --color-primary-black: #111111;
+  --color-light-gray: #E7E7E7;
+  --color-accent-green: #99FF99;
+
+  /* Additional colors for UI */
+  --color-white: #ffffff;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Typography */
+  --font-primary: var(--font-playfair-display), serif;
+
+  /* Legacy support */
+  --background: var(--color-white);
+  --foreground: var(--color-primary-black);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-primary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-primary-black);
+    --foreground: var(--color-light-gray);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure all text elements use Playfair Display */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button,
+input, textarea, select,
+label, li, td, th {
+  font-family: var(--font-primary);
+}
+
+/* Specific font weight assignments */
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-weight: 600;
+}
+
+p, span, div {
+  font-weight: 400;
+}
+
+/* Ensure proper font loading and fallback */
+.font-playfair {
+  font-family: var(--font-primary);
 }

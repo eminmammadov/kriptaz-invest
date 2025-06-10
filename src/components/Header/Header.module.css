@@ -1,0 +1,172 @@
+/* Header Component Styles */
+
+.header {
+  background-color: var(--color-light-gray);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  font-family: var(--font-primary);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.navigationContainer {
+  flex: 1;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  display: none;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .buttonsContainer {
+    display: flex;
+  }
+}
+
+.mobileMenuButton {
+  display: block;
+  padding: 0.5rem;
+  color: var(--color-gray-700);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.mobileMenuButton:hover {
+  color: var(--color-gray-900);
+}
+
+.mobileMenuButton:focus {
+  outline: none;
+  /* Removed focus outline as requested */
+}
+
+/* Hamburger Icon Container */
+.hamburgerIcon {
+  width: 1.75rem;
+  height: 1.125rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hamburger Lines */
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center center;
+  position: absolute;
+}
+
+.hamburgerLineTop {
+  transform: translateY(-4.5px) rotate(0deg);
+}
+
+.hamburgerLineBottom {
+  transform: translateY(4.5px) rotate(0deg);
+}
+
+/* Perfect X Animation when menu is open */
+.mobileMenuButtonOpen .hamburgerLineTop {
+  transform: translateY(0) rotate(45deg);
+}
+
+.mobileMenuButtonOpen .hamburgerLineBottom {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 4rem; /* Below the header (header height is 4rem) */
+  right: 0;
+  width: 100vw;
+  height: calc(100vh - 4rem); /* Full viewport height minus header */
+  background-color: var(--color-primary-black);
+  transform: translateX(100%); /* Initially hidden off-screen to the right */
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+  overflow-y: auto; /* Allow scrolling if content is too tall */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.mobileMenuOpen {
+  transform: translateX(0); /* Slide in from right */
+}
+
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.mobileNavItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.mobileButtonsContainer {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto; /* Push buttons to bottom */
+}

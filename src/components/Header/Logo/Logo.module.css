@@ -1,0 +1,35 @@
+/* Logo Component Styles */
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-primary);
+}
+
+.logoContainer:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.logoImage {
+  object-fit: contain;
+  filter: brightness(0) saturate(100%); /* Makes SVG black */
+  height: 2rem; /* Mobile size */
+  width: auto;
+  transition: height 0.2s ease-in-out;
+}
+
+/* Desktop sizing */
+@media (min-width: 768px) {
+  .logoImage {
+    height: 2.5rem;
+  }
+}
+
+/* Large desktop sizing */
+@media (min-width: 1024px) {
+  .logoImage {
+    height: 3rem;
+  }
+}
