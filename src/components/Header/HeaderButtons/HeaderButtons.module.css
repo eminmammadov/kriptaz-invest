@@ -15,7 +15,7 @@
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   border: none;
-  border-radius: 0; /* No border radius as requested */
+  border-radius: 4px; /* No border radius as requested */
   font-family: var(--font-header);
 }
 

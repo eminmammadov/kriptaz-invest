@@ -60,7 +60,7 @@
     background-color: var(--color-primary-black); /* Bright green for visibility */
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease-in-out; /* Slower for testing */
+    transition: transform 0.2s ease-in-out; /* Slower for testing */
   }
 
   .navigation .navigationButton:hover::after {
