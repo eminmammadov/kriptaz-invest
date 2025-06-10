@@ -176,6 +176,7 @@
 }
 
 .columnText {
+  max-width: 600px;
   font-family: var(--font-primary);
   font-size: 1.25rem;
   font-weight: 400;

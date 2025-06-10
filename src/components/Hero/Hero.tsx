@@ -14,8 +14,8 @@ const Hero: React.FC<HeroProps> = ({
   videoSrc = '/videos/hero-video.mp4',
   videoOverlayImage = '/images/video-filter.svg',
   title = 'Crypto investment online fund established by mutual investors',
-  leftText = 'Grand Founders is an economic development and national security foundation that makes impact investments and supports emerging entrepreneurs globally, ensuring a noble legacy for generations to come.',
-  rightText = 'Grand Founders is a noble community of mission-driven and socially responsible multimillionaires, united by similar culture and values. The foundation is NYC based 501c3, and fully backed and supervised by Grand Founders Ambassadors.',
+  leftText = 'Our online fund platform, founded with distinguished investors from our close network, operates under official regulatory standards, providing a reliable, transparent, and bespoke investment service.',
+  rightText = 'Managed with disciplined strategies and our "DDGO" (Dama Dama Göl Olar) principle, our fund allocates weekly savings into crypto assets to achieve steady growth and secure our future.',
   onVideoLoad,
   onVideoError
 }) => {
