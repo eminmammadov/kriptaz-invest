@@ -5,6 +5,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Cookies } from '@/components/Cookies';
 import { ProjectSlider, ProjectLogo } from '@/components/ProjectSlider';
+import { TVL } from '@/components/TVL';
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -40,6 +41,8 @@ export default function Home() {
     // Add any additional logic when a project logo is clicked
   };
 
+
+
   return (
     <div className="min-h-screen">
       <Header
@@ -57,6 +60,9 @@ export default function Home() {
       <ProjectSlider
         onLogoClick={handleProjectLogoClick}
       />
+
+      {/* TVL Metrics Section */}
+      <TVL />
 
       {/* Cookies Banner */}
       <Cookies
