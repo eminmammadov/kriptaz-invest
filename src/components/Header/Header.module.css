@@ -127,7 +127,8 @@
   left: 0;
   width: 100vw;
   height: calc(100vh - 4rem); /* Full viewport height minus header */
-  background-color: var(--color-white);
+  background: #E7E7E7;
+  background: linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(255, 255, 255, 1) 50%);
   transform: translateY(-100vh); /* Move completely above viewport (more than needed to ensure hiding) */
   transition: transform 1s ease-in-out; /* Smooth 1-second animation */
   z-index: 50;
