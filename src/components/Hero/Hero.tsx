@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({
   // Hook to detect screen size for mobile-specific SVG
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobileSmall(window.innerWidth <= 320);
+      setIsMobileSmall(window.innerWidth <= 395);
     };
 
     // Check initial screen size

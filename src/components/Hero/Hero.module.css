@@ -273,7 +273,7 @@
 }
 
 /* Extra small screens - mobile-specific SVG filter */
-@media (max-width: 320px) {
+@media (max-width: 395px) {
   .videoOverlayImage[src$=".svg"] {
     /* Aggressive scaling for very small screens */
     object-fit: cover;
