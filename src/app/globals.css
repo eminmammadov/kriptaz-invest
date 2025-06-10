@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* Gellix Font Face Declarations */
+@font-face {
+  font-family: 'Gellix';
+  src: url('/fonts/gellix/Gellix-Regular.woff2') format('woff2'),
+       url('/fonts/gellix/Gellix-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gellix';
+  src: url('/fonts/gellix/Gellix-SemiBold.woff2') format('woff2'),
+       url('/fonts/gellix/Gellix-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Color System */
   --color-primary-black: #111111;
@@ -8,12 +27,14 @@
 
   /* Additional colors for UI */
   --color-white: #ffffff;
+  --color-gray: #d6d6d6;
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 
-  /* Typography */
-  --font-primary: var(--font-playfair-display), serif;
+  /* Typography - Font variables */
+  --font-primary: var(--font-playfair, "Playfair", serif);
+  --font-header: "Gellix", sans-serif;
 
   /* Legacy support */
   --background: var(--color-white);
@@ -23,7 +44,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-primary);
+  --font-sans: var(--font-playfair);
+  --font-serif: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,17 +58,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-primary);
+  font-family: var(--font-primary) !important;
   margin: 0;
   padding: 0;
 }
 
-/* Ensure all text elements use Playfair Display */
+/* Default font for most elements - Playfair (excluding header elements) */
 h1, h2, h3, h4, h5, h6,
-p, span, div, a, button,
+p, span, div, a,
 input, textarea, select,
 label, li, td, th {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary) !important;
+}
+
+/* Specific override for header navigation and buttons to use Gellix */
+.font-header,
+.font-gellix,
+[class*="navigation"] button,
+[class*="header"] button,
+[class*="Navigation"] button,
+[class*="HeaderButtons"] button {
+  font-family: var(--font-header) !important;
 }
 
 /* Specific font weight assignments */
@@ -62,7 +94,65 @@ p, span, div {
   font-weight: 400;
 }
 
-/* Ensure proper font loading and fallback */
+/* Font utility classes */
 .font-playfair {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary) !important;
+}
+
+.font-primary {
+  font-family: var(--font-primary) !important;
+}
+
+.font-gellix {
+  font-family: var(--font-header) !important;
+}
+
+.font-header {
+  font-family: var(--font-header) !important;
+}
+
+/* Gellix font weight utility classes */
+.font-gellix-regular {
+  font-family: var(--font-header) !important;
+  font-weight: 400 !important;
+}
+
+.font-gellix-semibold {
+  font-family: var(--font-header) !important;
+  font-weight: 600 !important;
+}
+
+.font-header-regular {
+  font-family: var(--font-header) !important;
+  font-weight: 400 !important;
+}
+
+.font-header-semibold {
+  font-family: var(--font-header) !important;
+  font-weight: 600 !important;
+}
+
+/* Specific Navigation component font overrides */
+nav[role="navigation"] button,
+nav[aria-label="Main navigation"] button,
+.navigation button,
+.mobileNavigation button,
+.navigationButton {
+  font-family: var(--font-header) !important;
+}
+
+/* Header buttons font overrides */
+.buttonsContainer button,
+.donateButton,
+.joinButton {
+  font-family: var(--font-header) !important;
+}
+
+/* Override any Tailwind default font classes */
+.font-sans {
+  font-family: var(--font-primary) !important;
+}
+
+.font-serif {
+  font-family: var(--font-primary) !important;
 }

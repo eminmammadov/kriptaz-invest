@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({
   className = '',
   videoSrc = '/videos/hero-video.mp4',
   videoOverlayImage = '/images/video-filter.svg',
-  title = 'Build Your Noble Legacy for Generations to Come',
+  title = 'Crypto investment online fund established by mutual investors',
   leftText = 'Grand Founders is an economic development and national security foundation that makes impact investments and supports emerging entrepreneurs globally, ensuring a noble legacy for generations to come.',
   rightText = 'Grand Founders is a noble community of mission-driven and socially responsible multimillionaires, united by similar culture and values. The foundation is NYC based 501c3, and fully backed and supervised by Grand Founders Ambassadors.',
   onVideoLoad,

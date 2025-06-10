@@ -2,7 +2,7 @@
 
 .navigation {
   display: none; /* Hidden by default on mobile */
-  font-family: var(--font-primary);
+  font-family: var(--font-header);
 }
 
 /* Desktop navigation - visible only on desktop */
@@ -21,8 +21,8 @@
 .mobileNavigation {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-family: var(--font-primary);
+  gap: 0.25rem; /* Tighter gap for cleaner appearance */
+  font-family: var(--font-header);
 }
 
 /* Desktop navigation button styles */
@@ -30,13 +30,12 @@
   color: var(--color-gray-700);
   background: none;
   border: none;
-  font-weight: 500; /* Increased for better visibility */
+  font-weight: 900; /* Updated to use Gellix SemiBold for better visibility */
   font-size: 0.85rem; /* Increased from 0.8125rem for better readability */
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  font-family: var(--font-primary);
+  font-family: var(--font-header) !important;
   padding: 0.5rem 1rem; /* Increased padding for better click targets */
   white-space: nowrap;
   border-radius: 0.25rem;
@@ -78,16 +77,17 @@
 
 /* Mobile navigation button styles - only for mobile menu context */
 .mobileNavigation .navigationButton {
-  color: var(--color-white);
-  font-size: 1.125rem; /* Slightly larger for full-screen menu */
-  font-weight: 400;
-  padding: 1.25rem 1.5rem; /* Increased padding for better touch targets */
+  color: var(--color-primary-black); /* Updated for white background */
+  font-size: 1rem; /* Slightly larger for full-screen menu */
+  font-weight: 600; /* Updated to use SemiBold for better visibility */
+  padding: .5rem 0rem; /* Optimized padding for better proportion */
   width: 100%;
-  text-align: left;
+  text-align: left; /* Left-aligned for better readability */
   border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0; /* Remove margin since gap is handled by parent */
   letter-spacing: 0.02em;
   position: relative; /* Ensure mobile buttons don't inherit desktop underline */
+  transition: all 0.2s ease-in-out; /* Smooth hover transitions */
 }
 
 /* Ensure mobile navigation buttons don't have underline effect */
@@ -105,8 +105,7 @@
 
 /* Mobile navigation hover and focus states */
 .mobileNavigation .navigationButton:hover {
-  color: var(--color-white);
-  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-gray-700);
 }
 
 

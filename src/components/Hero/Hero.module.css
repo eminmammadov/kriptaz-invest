@@ -96,7 +96,7 @@
 /* Content Section Styles */
 .contentSection {
   background-color: var(--color-light-gray);
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .contentContainer {
@@ -125,7 +125,7 @@
 .decorativeLine {
   width: 100%;
   height: 2px;
-  background-color: var(--color-primary-black);
+  background-color: var(--color-gray);
   margin: 2rem 0;
 }
 
@@ -140,11 +140,10 @@
 /* Typography Styles */
 .heroTitle {
   font-family: var(--font-primary);
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-primary-black);
-  text-align: justify;
   margin: 2rem 0;
   letter-spacing: -0.02em;
 }
@@ -182,7 +181,6 @@
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-primary-black);
-  text-align: justify;
   margin: 0;
 }
 
