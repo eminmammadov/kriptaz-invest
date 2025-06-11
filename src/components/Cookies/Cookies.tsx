@@ -5,7 +5,7 @@ import { CookiesProps, CookiesBannerState } from '@/types/cookies';
 import styles from './Cookies.module.css';
 
 // Default message matching the image content
-const DEFAULT_MESSAGE = `May fortune favour your every step. Our online fund platform, built with select investors from our close circle, adheres to official regulations, offering you a transparent and bespoke investment companion. Guided by disciplined strategies and our ‘DDGO’ (‘Dama Dama Göl Olar’) principle, we channel your weekly savings into crypto assets to nurture steady growth and secure a prosperous tomorrow.`;
+const DEFAULT_MESSAGE = `May fortune favor your every step. Our online fund platform, developed by carefully selected investors from our close network, adheres to official regulations and offers you a transparent, personalized investment partner. Guided by disciplined strategies and our 'DDGO' principle (meaning 'steady progress toward the goal'), we channel your weekly savings into crypto assets to foster consistent growth and secure a prosperous future.`;
 
 // Storage key for tracking cookie acceptance
 const COOKIES_STORAGE_KEY = 'kriptaz_cookies_accepted';

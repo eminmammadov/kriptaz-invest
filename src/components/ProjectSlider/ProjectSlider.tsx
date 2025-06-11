@@ -58,8 +58,15 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({
   });
 
   // Create duplicated logos for seamless infinite scroll
+  // We need enough duplicates to ensure seamless scrolling
   const duplicatedLogos = useMemo(() => {
-    return [...logos, ...logos];
+    // Create multiple sets to ensure seamless loop
+    const multiplier = Math.max(3, Math.ceil(20 / logos.length)); // Ensure at least 3 sets
+    const result = [];
+    for (let i = 0; i < multiplier; i++) {
+      result.push(...logos);
+    }
+    return result;
   }, [logos]);
 
   // Handle mouse enter

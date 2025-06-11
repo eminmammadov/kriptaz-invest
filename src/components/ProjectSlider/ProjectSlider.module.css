@@ -3,31 +3,31 @@
 .sliderContainer {
   width: 100%;
   overflow: hidden;
-  background-color: var(--color-light-gray);
+  background-color: var(--color-gold);
+  padding: 1rem 0;
   position: relative;
-  border-top: .5rem solid var(--color-gold);
-  border-bottom: .5rem solid var(--color-gold);
 }
 
 .sliderTrack {
   display: flex;
   align-items: center;
   animation: slideLeft var(--animation-duration, 30s) linear infinite;
-  width: fit-content;
+  width: max-content;
   gap: var(--logo-spacing, 3rem);
+  will-change: transform;
 }
 
 .sliderTrack.paused {
   animation-play-state: paused;
 }
 
-/* Keyframe animation for continuous left scroll */
+/* Keyframe animation for seamless infinite scroll */
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - var(--logo-spacing, 3rem) / 2));
   }
 }
 
@@ -36,41 +36,61 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
+  padding: 1rem;
+  border-radius: 12px;
+  opacity: 0.6;
 }
 
 .logoItem:hover {
-  transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05) translateY(-2px);
+  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .logoImage {
   height: var(--logo-height, 3rem);
   width: auto;
   object-fit: contain;
-  filter: brightness(0) saturate(100%); /* Makes SVG black */
-  transition: all 0.3s ease-in-out;
+  filter: brightness(0) saturate(100%) invert(1) opacity(0.8); /* Makes SVG white with good opacity */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logoItem:hover .logoImage {
-  filter: brightness(0) saturate(100%) contrast(1.2);
+  filter: brightness(0) saturate(100%) invert(1) opacity(1) contrast(1.1);
 }
 
 /* Responsive logo sizing */
 @media (max-width: 768px) {
   .sliderContainer {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
   }
-  
+
   .logoImage {
     height: var(--logo-height-mobile, 2rem);
   }
-  
+
   .sliderTrack {
     gap: var(--logo-spacing-mobile, 2rem);
+  }
+
+  .logoItem {
+    padding: 0.75rem;
+    opacity: 0.5;
+  }
+
+  .logoItem:hover {
+    opacity: 0.8;
+  }
+
+  .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(0.7);
+  }
+
+  .logoItem:hover .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(0.95) contrast(1.05);
   }
 }
 
@@ -78,13 +98,31 @@
   .sliderContainer {
     padding: 1rem 0;
   }
-  
+
   .logoImage {
     height: var(--logo-height-mobile, 1.5rem);
   }
-  
+
   .sliderTrack {
     gap: var(--logo-spacing-mobile, 1.5rem);
+  }
+
+  .logoItem {
+    padding: 0.5rem;
+    opacity: 0.4;
+  }
+
+  .logoItem:hover {
+    opacity: 0.7;
+    transform: scale(1.02) translateY(-1px);
+  }
+
+  .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(0.6);
+  }
+
+  .logoItem:hover .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(0.9) contrast(1.05);
   }
 }
 
@@ -93,9 +131,14 @@
   .sliderTrack {
     animation: none;
   }
-  
+
   .logoItem:hover {
     transform: none;
+    opacity: 0.9;
+  }
+
+  .logoItem:hover .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(1) contrast(1.1);
   }
 }
 
@@ -103,21 +146,27 @@
 @media (prefers-contrast: high) {
   .sliderContainer {
     background-color: var(--color-white);
-    border-top: 2px solid var(--color-primary-black);
-    border-bottom: 2px solid var(--color-primary-black);
+    border-top: 1px solid var(--color-primary-black);
+    border-bottom: 1px solid var(--color-primary-black);
   }
-  
+
+  .logoItem {
+    opacity: 0.8;
+  }
+
   .logoItem:hover {
     background-color: var(--color-light-gray);
-    border: 2px solid var(--color-primary-black);
+    border: 1px solid var(--color-primary-black);
+    opacity: 1;
   }
-}
 
-/* Focus styles for keyboard navigation */
-.logoItem:focus {
-  outline: 1px solid var(--color-accent-green);
-  outline-offset: 1px;
-  background-color: rgba(153, 255, 153, 0.1);
+  .logoImage {
+    filter: brightness(0) saturate(100%) opacity(1); /* High contrast mode - full black */
+  }
+
+  .logoItem:hover .logoImage {
+    filter: brightness(0) saturate(100%) opacity(1) contrast(1.2);
+  }
 }
 
 /* Gradient fade effects on edges */
@@ -127,19 +176,19 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 2rem;
+  width: 4rem;
   z-index: 10;
   pointer-events: none;
 }
 
 .sliderContainer::before {
   left: 0;
-  background: linear-gradient(to right, var(--color-light-gray), transparent);
+  background: linear-gradient(to right, var(--color-gold), transparent);
 }
 
 .sliderContainer::after {
   right: 0;
-  background: linear-gradient(to left, var(--color-light-gray), transparent);
+  background: linear-gradient(to left, var(--color-gold), transparent);
 }
 
 /* Dark mode support */
@@ -147,20 +196,29 @@
   .sliderContainer {
     background-color: var(--color-gold);
   }
-  
+
   .sliderContainer::before {
     background: linear-gradient(to right, var(--color-gold), transparent);
   }
-  
+
   .sliderContainer::after {
     background: linear-gradient(to left, var(--color-gold), transparent);
   }
-  
+
   .logoImage {
-    filter: brightness(0) saturate(100%) invert(1); /* Makes SVG white in dark mode */
+    filter: brightness(0) saturate(100%) invert(1) opacity(0.8); /* Makes SVG white in dark mode with good opacity */
   }
-  
+
+  .logoItem {
+    opacity: 0.5;
+  }
+
   .logoItem:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    opacity: 0.8;
+  }
+
+  .logoItem:hover .logoImage {
+    filter: brightness(0) saturate(100%) invert(1) opacity(1) contrast(1.1);
   }
 }
