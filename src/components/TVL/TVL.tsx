@@ -32,7 +32,7 @@ const defaultMetrics: TVLMetric[] = [
  */
 const TVL: React.FC<TVLProps> = ({
   className = '',
-  title = 'Invest Founders fund established with Close Friends',
+  title = 'Invest Founders fund was established with Close Friends',
   subtitle,
   metrics = defaultMetrics
 }) => {
