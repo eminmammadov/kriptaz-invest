@@ -17,7 +17,7 @@ const defaultMetrics: TVLMetric[] = [
   {
     value: '4.5%',
     label: 'Investor Rate',
-    superscript: '1'
+    superscript: '+'
   },
   {
     value: '$50K',
