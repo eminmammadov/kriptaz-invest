@@ -6,6 +6,7 @@ import { Hero } from '@/components/Hero';
 import { Cookies } from '@/components/Cookies';
 import { ProjectSlider, ProjectLogo } from '@/components/ProjectSlider';
 import { TVL } from '@/components/TVL';
+import { Footer } from '@/components/Footer';
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -41,6 +42,16 @@ export default function Home() {
     // Add any additional logic when a project logo is clicked
   };
 
+  const handleFooterLinkClick = (link: any) => {
+    console.log('Footer link clicked:', link.label);
+    // Add any additional logic when a footer link is clicked
+  };
+
+  const handleFooterSocialClick = (social: any) => {
+    console.log('Footer social clicked:', social.name);
+    // Add any additional logic when a social link is clicked
+  };
+
 
 
   return (
@@ -63,6 +74,13 @@ export default function Home() {
 
       {/* TVL Metrics Section */}
       <TVL />
+
+      {/* Footer */}
+      <Footer
+        onLinkClick={handleFooterLinkClick}
+        onSocialClick={handleFooterSocialClick}
+        onLogoClick={handleLogoClick}
+      />
 
       {/* Cookies Banner */}
       <Cookies
