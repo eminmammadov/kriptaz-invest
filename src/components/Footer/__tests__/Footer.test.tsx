@@ -26,6 +26,7 @@ describe('Footer Component', () => {
     expect(screen.getByText('Terms of Service')).toBeInTheDocument();
     expect(screen.getByText('Privacy Policy')).toBeInTheDocument();
     expect(screen.getByLabelText('Kriptaz Invest - Go to homepage')).toBeInTheDocument();
+    expect(screen.getByAltText('Kriptaz Invest')).toBeInTheDocument();
   });
 
   it('renders with custom company name and year', () => {
@@ -109,5 +110,14 @@ describe('Footer Component', () => {
     expect(socialLink).toHaveAttribute('href', 'https://x.com/InvestFounders');
     expect(socialLink).toHaveAttribute('target', '_blank');
     expect(socialLink).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('renders SVG logo with correct attributes', () => {
+    render(<Footer />);
+
+    const logoImage = screen.getByAltText('Kriptaz Invest');
+    expect(logoImage).toHaveAttribute('src', '/logos/kriptaz-invest-full-white-logo.svg');
+    expect(logoImage).toHaveAttribute('width', '400');
+    expect(logoImage).toHaveAttribute('height', '120');
   });
 });

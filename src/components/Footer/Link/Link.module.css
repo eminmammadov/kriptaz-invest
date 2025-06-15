@@ -3,8 +3,8 @@
 .link {
   color: var(--color-white);
   text-decoration: none;
-  font-family: var(--font-header);
-  font-size: 0.875rem;
+  font-family: var(--font-header) !important;
+  font-size: 0.7rem;
   font-weight: 400;
   transition: color 0.25s ease-in-out;
   cursor: pointer;

@@ -10,8 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+ 
   background: transparent;
   border: none;
   color: var(--color-white);
@@ -47,11 +46,6 @@
 .socialLink:hover {
   color: var(--color-accent-green);
   transform: translateY(-2px);
-}
-
-.socialLink:focus {
-  outline: 2px solid var(--color-accent-green);
-  outline-offset: 2px;
 }
 
 .socialLink:active {

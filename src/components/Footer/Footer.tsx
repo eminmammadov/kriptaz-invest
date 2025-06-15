@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import Logo from '../Header/Logo/Logo';
+import Image from 'next/image';
 import Link from './Link/Link';
 import Social from './Social/Social';
 import { FooterProps, FooterLink, SocialLink } from '@/types/footer';
@@ -111,10 +111,28 @@ const Footer: React.FC<FooterProps> = ({
 
           {/* Company Logo */}
           <div className={styles.logoSection}>
-            <Logo
-              onClick={handleLogoClick}
+            <div
               className={styles.footerLogo}
-            />
+              onClick={handleLogoClick}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && handleLogoClick) {
+                  e.preventDefault();
+                  handleLogoClick();
+                }
+              }}
+              aria-label="Kriptaz Invest - Go to homepage"
+            >
+              <Image
+                src="/logos/kriptaz-invest-full-white-logo.svg"
+                alt="Kriptaz Invest"
+                width={400}
+                height={120}
+                className={styles.logoImage}
+                priority
+              />
+            </div>
           </div>
         </div>
 
