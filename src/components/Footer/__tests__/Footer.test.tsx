@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Footer } from '../index';
-import { FooterLink, SocialLink } from '@/types/footer';
+import { FooterLink } from '@/types/footer';
 
 // Mock Next.js router
 jest.mock('next/navigation', () => ({
@@ -14,7 +14,6 @@ jest.mock('next/navigation', () => ({
 describe('Footer Component', () => {
   const mockOnLinkClick = jest.fn();
   const mockOnSocialClick = jest.fn();
-  const mockOnLogoClick = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();

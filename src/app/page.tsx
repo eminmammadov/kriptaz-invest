@@ -7,6 +7,7 @@ import { Cookies } from '@/components/Cookies';
 import { ProjectSlider, ProjectLogo } from '@/components/ProjectSlider';
 import { TVL } from '@/components/TVL';
 import { Footer } from '@/components/Footer';
+import { FooterLink, SocialLink } from '@/types/footer';
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -42,12 +43,12 @@ export default function Home() {
     // Add any additional logic when a project logo is clicked
   };
 
-  const handleFooterLinkClick = (link: any) => {
+  const handleFooterLinkClick = (link: FooterLink) => {
     console.log('Footer link clicked:', link.label);
     // Add any additional logic when a footer link is clicked
   };
 
-  const handleFooterSocialClick = (social: any) => {
+  const handleFooterSocialClick = (social: SocialLink) => {
     console.log('Footer social clicked:', social.name);
     // Add any additional logic when a social link is clicked
   };
