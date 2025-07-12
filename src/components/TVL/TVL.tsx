@@ -11,7 +11,7 @@ const defaultMetrics: TVLMetric[] = [
     label: 'Friend Members'
   },
   {
-    value: '6',
+    value: '8',
     label: 'Investment Projects'
   },
   {
@@ -20,7 +20,7 @@ const defaultMetrics: TVLMetric[] = [
     superscript: '+'
   },
   {
-    value: '$50K',
+    value: '$100K',
     label: 'Market Value',
     badge: 'TVL'
   }
