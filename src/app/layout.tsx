@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${playfair.variable} antialiased`}
-        data-new-gr-c-s-check-loaded="14.1239.0"
+        data-new-gr-c-s-check-loaded="14.1243.0"
         data-gr-ext-installed=""
       >
         {children}

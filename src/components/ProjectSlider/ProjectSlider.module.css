@@ -1,11 +1,22 @@
 /* ProjectSlider Component Styles */
 
 .sliderContainer {
-  width: 100%;
+  margin-left: calc(-50vw + 50%);
   overflow: hidden;
   background-color: var(--color-gold);
   padding: 1rem 0;
   position: relative;
+}
+
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.sliderContent {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .sliderTrack {

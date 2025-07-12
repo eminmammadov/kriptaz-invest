@@ -111,18 +111,20 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({
   } as React.CSSProperties;
 
   return (
-    <div 
+    <div
       className={`${styles.sliderContainer} ${className}`}
       style={containerStyle}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       role="region"
       aria-label="Partner and project logos carousel"
     >
-      <div 
-        className={`${styles.sliderTrack} ${sliderState.isPaused ? styles.paused : ''}`}
-        aria-live="off"
-      >
+      <div className={styles.container}>
+        <div className={styles.sliderContent}>
+          <div
+            className={`${styles.sliderTrack} ${sliderState.isPaused ? styles.paused : ''}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            aria-live="off"
+          >
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo.name}-${index}`}
@@ -144,6 +146,8 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({
             />
           </div>
         ))}
+          </div>
+        </div>
       </div>
     </div>
   );

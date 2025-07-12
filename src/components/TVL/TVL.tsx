@@ -39,12 +39,13 @@ const TVL: React.FC<TVLProps> = ({
 
 
   return (
-    <section 
+    <section
       className={`${styles.tvlContainer} ${className}`}
       role="region"
       aria-label="Total Value Locked metrics and statistics"
     >
-      <div className={styles.tvlContent}>
+      <div className={styles.container}>
+        <div className={styles.tvlContent}>
         {/* Header Section */}
         <div className={styles.tvlHeader}>
           <h2 className={styles.tvlTitle}>
@@ -90,6 +91,7 @@ const TVL: React.FC<TVLProps> = ({
               )}
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

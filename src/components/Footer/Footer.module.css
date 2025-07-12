@@ -14,22 +14,9 @@
   padding-right: 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 .footerContent {
-  margin-bottom: 4rem;
+  max-width: 1600px;
+  margin: 0 auto 4rem auto;
 }
 
 .disclaimerSection {
@@ -92,6 +79,12 @@
   display: block;
 }
 
+@media (max-width: 768px) {
+  .footerLogo {
+    width: auto;
+  }
+}
+
 @media (min-width: 768px) {
   .footerLogo .logoImage {
     height: 6rem;
@@ -111,6 +104,8 @@
 }
 
 .bottomSection {
+  max-width: 1600px;
+  margin: 0 auto;
   display: flex;
   gap: 1.5rem;
   align-items: center;
