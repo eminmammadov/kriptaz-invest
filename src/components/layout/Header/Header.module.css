@@ -191,8 +191,8 @@
 .mobileNavigation {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Reduced gap for better spacing */
-  padding: 2rem 1.5rem 2rem 1.5rem; /* Increased bottom padding for better spacing */
+  gap: 1rem; /* Reduced gap by ~33% (from 1.5rem to 1rem) */
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem; /* Reduced padding by ~25% */
   height: 100%;
   min-height: 100%;
   justify-content: space-between; /* Distribute space between nav items and buttons */
@@ -201,16 +201,16 @@
 .mobileNavItems {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Increased spacing for better touch targets */
+  gap: 0.7rem; /* Reduced by 30% (from 1rem to 0.7rem) */
   flex: 1;
   justify-content: flex-start;
 }
 
 .mobileButtonsContainer {
-  padding-top: 1.5rem; /* Reduced padding for better proportion */
+  padding-top: 1rem; /* Reduced by ~33% (from 1.5rem to 1rem) */
   border-top: 1px solid rgba(0, 0, 0, 0.1); /* Updated for white background */
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Slightly tighter gap between buttons */
+  gap: 0.5rem; /* Reduced by ~33% (from 0.75rem to 0.5rem) */
   flex-shrink: 0; /* Prevent shrinking */
 }
