@@ -1,0 +1,325 @@
+/* Hero Component Styles */
+
+.heroSection {
+  font-family: var(--font-primary);
+}
+
+/* Video Section Styles */
+.videoSection {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background-color: var(--color-light-gray);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.videoSectionContainer {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 100%;
+}
+
+.videoSectionContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Ensure container maintains proper dimensions for SVG scaling */
+  display: block;
+  border-radius: 8px;
+}
+
+.videoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  background-color: var(--color-primary-black);
+}
+
+/* SVG Overlay Styles */
+.videoOverlayImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+  pointer-events: none;
+  /* Ensure responsive scaling */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* SVG-specific styling for complete coverage and responsive scaling */
+.videoOverlayImage[src$=".svg"] {
+  object-fit: cover;
+  object-position: center;
+  /* Force complete coverage at all screen sizes */
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  /* Prevent SVG from shrinking below container size */
+  flex-shrink: 0;
+  /* Ensure proper scaling behavior */
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+/* Video Overlay for Better Contrast */
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Content Section Styles */
+.contentSection {
+  background-color: var(--color-light-gray);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 2rem 0;
+}
+
+.contentSectionContainer {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.contentContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Decorative Lines */
+.decorativeLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gray);
+  margin: 2rem 0;
+}
+
+.decorativeLine:first-child {
+  margin-top: 0;
+}
+
+.decorativeLine:last-child {
+  margin-bottom: 0;
+}
+
+/* Typography Styles */
+.heroTitle {
+  font-family: var(--font-header) !important;
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-primary-black);
+  margin: 2rem 0;
+  letter-spacing: -0.02em;
+}
+
+/* Two-Column Text Layout */
+.textColumns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .textColumns {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .textColumns {
+    gap: 4rem;
+  }
+}
+
+.textColumn {
+  width: 100%;
+  min-width: 0; /* Prevents overflow in grid layout */
+}
+
+.columnText {
+  max-width: 600px;
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-primary-black);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .videoSection {
+    height: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .videoSection {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoSection {
+    height: 300px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .contentSection {
+    padding: 2rem 0;
+  }
+
+  .decorativeLine {
+    margin: 1.5rem 0;
+  }
+
+  .textColumns {
+    gap: 1.5rem;
+  }
+
+  /* Ensure SVG overlay scales properly on tablet */
+  .videoOverlayImage {
+    /* Force recalculation of dimensions */
+    transform: scale(0.001);
+  }
+
+  .videoOverlayImage[src$=".svg"] {
+    /* Maintain coverage on tablet screens */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 580px) {
+  .videoSection {
+    height: 200px;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .columnText {
+    font-size: 1rem;
+  }
+
+  .textColumns {
+    gap: 1rem;
+  }
+
+  /* Ensure SVG overlay scales properly on mobile */
+  .videoOverlayImage {
+    /* Force recalculation of dimensions */
+    transform: scale(1.002);
+  }
+
+  .videoOverlayImage[src$=".svg"] {
+    /* Maintain coverage on mobile screens */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    /* Additional mobile-specific scaling */
+    transform: scale(1.05);
+    transform-origin: center center;
+  }
+}
+
+/* Extra small screens - mobile-specific SVG filter */
+@media (max-width: 395px) {
+  .videoOverlayImage[src$=".svg"] {
+    /* Aggressive scaling for very small screens */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(1.1);
+    transform-origin: center center;
+  }
+
+  /* Mobile-specific overlay styling */
+  .mobileOverlay {
+    /* Ensure mobile SVG filter maintains proper coverage */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(1.1);
+    transform-origin: center center;
+  }
+
+  /* Specific styling for mobile SVG filter */
+  .videoOverlayImage[src$="video-filter-mobile.svg"] {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(1.1);
+    transform-origin: center center;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .videoBackground {
+    animation: none;
+  }
+  
+  /* Provide a static background image fallback */
+  .videoBackground::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary-black);
+    z-index: 1;
+  }
+}
+
+/* Focus States for Accessibility */
+.heroSection:focus-within {
+  outline: 2px solid var(--color-accent-green);
+  outline-offset: 2px;
+}

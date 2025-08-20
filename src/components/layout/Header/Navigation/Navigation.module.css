@@ -1,0 +1,165 @@
+/* Navigation Component Styles - Compact Design */
+
+.navigation {
+  display: none; /* Hidden by default on mobile */
+  font-family: var(--font-header);
+}
+
+/* Desktop navigation - visible only on desktop */
+@media (min-width: 768px) {
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    gap: 0.5rem; /* Increased for better spacing */
+  }
+}
+
+/* Mobile navigation - only visible when used in mobile menu context */
+.mobileNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Tighter gap for cleaner appearance */
+  font-family: var(--font-header);
+}
+
+/* Desktop navigation button styles */
+.navigationButton {
+  color: var(--color-gray-700);
+  background: none;
+  border: none;
+  font-weight: 900; /* Updated to use Gellix SemiBold for better visibility */
+  font-size: 0.85rem; /* Increased from 0.8125rem for better readability */
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-family: var(--font-header) !important;
+  padding: 0.5rem 1rem; /* Increased padding for better click targets */
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  position: relative; /* Required for ::after pseudo-element positioning */
+}
+
+@media (max-width: 900px) {
+  .navigationButton {
+    padding: 0.5rem;
+  }
+}
+
+/* Desktop hover underline animation - only for desktop navigation */
+@media (min-width: 768px) {
+  .navigation .navigationButton::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Move below the button */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Make it thicker for testing */
+    background-color: var(--color-primary-black); /* Bright green for visibility */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-in-out; /* Slower for testing */
+  }
+
+  .navigation .navigationButton:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .navigation .navigationButton::after {
+    transition: none;
+  }
+}
+
+/* Mobile navigation button styles - only for mobile menu context */
+.mobileNavigation .navigationButton {
+  color: var(--color-primary-black); /* Updated for white background */
+  font-size: 1rem; /* Slightly larger for full-screen menu */
+  font-weight: 600; /* Updated to use SemiBold for better visibility */
+  padding: .5rem 0rem; /* Optimized padding for better proportion */
+  width: 100%;
+  text-align: left; /* Left-aligned for better readability */
+  border-radius: 0.5rem;
+  margin-bottom: 0; /* Remove margin since gap is handled by parent */
+  letter-spacing: 0.02em;
+  position: relative; /* Ensure mobile buttons don't inherit desktop underline */
+  transition: all 0.2s ease-in-out; /* Smooth hover transitions */
+}
+
+/* Ensure mobile navigation buttons don't have underline effect by default */
+.mobileNavigation .navigationButton::after {
+  display: none;
+}
+
+/* But allow it for active state */
+.mobileNavigation .navigationButton.active::after {
+  display: block !important;
+}
+
+/* Active state styles for desktop navigation */
+@media (min-width: 768px) {
+  /* Show black underline for active links */
+  .navigation .navigationButton.active::after {
+    background-color: var(--color-primary-black) !important;
+    transform: scaleX(1) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Desktop hover and focus states */
+@media (min-width: 768px) {
+  .navigation .navigationButton:hover {
+    color: var(--color-gray-900);
+    background-color: var(--color-light-gray);
+  }
+
+  /* Keep active link underline on hover */
+  .navigation .navigationButton.active:hover {
+    color: var(--color-gray-900);
+    background-color: var(--color-light-gray);
+  }
+
+  .navigation .navigationButton.active:hover::after {
+    background-color: var(--color-primary-black) !important;
+    transform: scaleX(1) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Active state styles for mobile navigation */
+.mobileNavigation .navigationButton.active {
+  /* Keep normal text color, add underline */
+  position: relative;
+}
+
+.mobileNavigation .navigationButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary-black) !important;
+  opacity: 1 !important;
+}
+
+/* Mobile navigation hover and focus states */
+.mobileNavigation .navigationButton:hover {
+  color: var(--color-gray-700);
+}
+
+/* Keep active link underline on hover in mobile */
+.mobileNavigation .navigationButton.active:hover {
+  color: var(--color-gray-700);
+}
+
+.mobileNavigation .navigationButton.active:hover::after {
+  background-color: var(--color-primary-black) !important;
+  opacity: 1 !important;
+}
+
+

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair } from "next/font/google";
 import "./globals.css";
+import ClientLayout from '@/components/layout/ClientLayout';
 
 const playfair = Playfair({
   variable: "--font-playfair",
@@ -23,10 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${playfair.variable} antialiased`}
-        data-new-gr-c-s-check-loaded="14.1243.0"
+        data-new-gr-c-s-check-loaded="14.1249.0"
         data-gr-ext-installed=""
       >
-        {children}
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

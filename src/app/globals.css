@@ -19,6 +19,11 @@
   font-display: swap;
 }
 
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+}
+
 :root {
   /* Color System */
   --color-primary-black: #111111;
