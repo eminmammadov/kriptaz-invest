@@ -78,7 +78,6 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={`${styles.header} ${className}`}
-      role="banner"
     >
       <div className={styles.container}>
         <div className={styles.headerContent}>

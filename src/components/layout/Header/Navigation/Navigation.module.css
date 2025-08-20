@@ -78,9 +78,9 @@
 /* Mobile navigation button styles - only for mobile menu context */
 .mobileNavigation .navigationButton {
   color: var(--color-primary-black); /* Updated for white background */
-  font-size: 1rem; /* Slightly larger for full-screen menu */
+  font-size: 1.125rem; /* Larger for better touch targets */
   font-weight: 600; /* Updated to use SemiBold for better visibility */
-  padding: .5rem 0rem; /* Optimized padding for better proportion */
+  padding: 1rem 0rem; /* Increased padding for better touch targets */
   width: 100%;
   text-align: left; /* Left-aligned for better readability */
   border-radius: 0.5rem;
@@ -88,6 +88,7 @@
   letter-spacing: 0.02em;
   position: relative; /* Ensure mobile buttons don't inherit desktop underline */
   transition: all 0.2s ease-in-out; /* Smooth hover transitions */
+  min-height: 48px; /* Ensure minimum touch target size */
 }
 
 /* Ensure mobile navigation buttons don't have underline effect by default */

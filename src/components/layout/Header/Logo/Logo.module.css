@@ -23,13 +23,13 @@
 /* Desktop sizing */
 @media (min-width: 768px) {
   .logoImage {
-    height: 2.5rem;
+    height: 2rem;
   }
 }
 
 /* Large desktop sizing */
 @media (min-width: 1024px) {
   .logoImage {
-    height: 3rem;
+    height: 2.25rem;
   }
 }

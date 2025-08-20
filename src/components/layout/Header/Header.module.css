@@ -2,17 +2,23 @@
 
 .header {
   background-color: var(--color-light-gray);
-  position: sticky;
+  position: fixed; /* Use fixed instead of sticky for better compatibility */
   top: 0;
-  z-index: 40;
-  margin-left: calc(-50vw + 50%);
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  left: 0;
+  right: 0;
+  z-index: 60;
+  width: 100vw;
+  /* Ensure header stays on top */
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .container {
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
+  position: relative;
+  z-index: inherit;
 }
 
 .headerContent {
@@ -22,6 +28,8 @@
   align-items: center;
   justify-content: space-between;
   height: 4rem;
+  position: relative;
+  z-index: inherit;
 }
 
 .logoContainer {
@@ -155,17 +163,23 @@
   left: 0;
   width: 100vw;
   height: calc(100vh - 4rem); /* Full viewport height minus header */
+  min-height: calc(100vh - 4rem); /* Ensure minimum height */
+  max-height: calc(100vh - 4rem); /* Prevent overflow */
   background: #E7E7E7;
   background: linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(255, 255, 255, 1) 50%);
-  transform: translateY(-100vh); /* Move completely above viewport (more than needed to ensure hiding) */
-  transition: transform 1s ease-in-out; /* Smooth 1-second animation */
+  transform: translateY(-100vh); /* Move completely above viewport - use full viewport height */
+  transition: transform 1s ease-in-out, visibility 0s linear 1s; /* Add visibility delay */
   z-index: 50;
   overflow-y: auto; /* Allow scrolling if content is too tall */
+  overflow-x: hidden; /* Prevent horizontal scroll */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Updated shadow for white background */
+  visibility: hidden; /* Hide completely when closed */
 }
 
 .mobileMenuOpen {
   transform: translateY(0); /* Slide down to visible position */
+  visibility: visible; /* Show when open */
+  transition: transform 1s ease-in-out; /* Remove visibility delay when opening */
 }
 
 @media (min-width: 768px) {
@@ -178,17 +192,18 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem; /* Reduced gap for better spacing */
-  padding: 2rem 1.5rem 1.5rem 1.5rem; /* Adjusted bottom padding */
+  padding: 2rem 1.5rem 2rem 1.5rem; /* Increased bottom padding for better spacing */
   height: 100%;
-  justify-content: flex-start;
+  min-height: 100%;
+  justify-content: space-between; /* Distribute space between nav items and buttons */
 }
 
 .mobileNavItems {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* Tighter spacing between navigation items */
+  gap: 1rem; /* Increased spacing for better touch targets */
   flex: 1;
-  margin-bottom: 1rem; /* Add space before buttons section */
+  justify-content: flex-start;
 }
 
 .mobileButtonsContainer {
@@ -197,5 +212,5 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem; /* Slightly tighter gap between buttons */
-  margin-top: auto; /* Push buttons to bottom */
+  flex-shrink: 0; /* Prevent shrinking */
 }
