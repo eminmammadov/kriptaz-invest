@@ -36,9 +36,9 @@ export default function Home() {
         onVideoError={handleVideoError}
       />
 
-      {/* <ProjectSlider
+      <ProjectSlider
         onLogoClick={handleProjectLogoClick}
-      /> */}
+      />
 
       <TVL />
 
