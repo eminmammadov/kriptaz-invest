@@ -1,62 +1,102 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Cookies } from '@/components/ui/Cookies';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { FooterLink, SocialLink } from '@/shared/types/footer';
+import { useGlobalStore, useCookies } from '@/shared/store/useGlobalStore';
 
 interface ClientLayoutProps {
   children: React.ReactNode;
 }
 
 const ClientLayout: React.FC<ClientLayoutProps> = ({ children }) => {
+  const generateSessionId = useGlobalStore((state) => state.generateSessionId);
+  const incrementPageViews = useGlobalStore((state) => state.incrementPageViews);
+  const { accepted: cookiesAccepted, setAccepted: setCookiesAccepted } = useCookies();
+
+  // Hydrate store and initialize session only on client side
+  useEffect(() => {
+    // Hydrate the persisted store
+    useGlobalStore.persist.rehydrate();
+    
+    // Initialize session and track page views only once
+    generateSessionId();
+    incrementPageViews();
+  }, [generateSessionId, incrementPageViews]); // Empty dependency array to run only once
+
   const handleDonateClick = () => {
-    console.log('Donate button clicked');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Donate button clicked');
+    }
+    // TODO: Implement analytics tracking
   };
 
   const handleJoinClick = () => {
-    console.log('Join Now button clicked');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Join Now button clicked');
+    }
+    // TODO: Implement analytics tracking
   };
 
   const handleLogoClick = () => {
-    console.log('Logo clicked');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Logo clicked');
+    }
+    // TODO: Implement analytics tracking
   };
 
   const handleCookiesAccept = () => {
-    console.log('Cookies accepted');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Cookies accepted');
+    }
+    setCookiesAccepted(true);
   };
 
   const handleFooterLinkClick = (link: FooterLink) => {
-    console.log('Footer link clicked:', link.label);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Footer link clicked:', link.label);
+    }
+    // TODO: Implement analytics tracking
   };
 
   const handleFooterSocialClick = (social: SocialLink) => {
-    console.log('Footer social clicked:', social.name);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Footer social clicked:', social.name);
+    }
+    // TODO: Implement analytics tracking
   };
 
   return (
-    <div className="min-h-screen">
-      <Header
-        onDonateClick={handleDonateClick}
-        onJoinClick={handleJoinClick}
-        onLogoClick={handleLogoClick}
-      />
+    <ErrorBoundary>
+      <div className="min-h-screen">
+        <Header
+          onDonateClick={handleDonateClick}
+          onJoinClick={handleJoinClick}
+          onLogoClick={handleLogoClick}
+        />
 
-      <main role="main">
-        {children}
-      </main>
+        <main role="main">
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </main>
 
-      <Footer
-        onLinkClick={handleFooterLinkClick}
-        onSocialClick={handleFooterSocialClick}
-        onLogoClick={handleLogoClick}
-      />
+        <Footer
+          onLinkClick={handleFooterLinkClick}
+          onSocialClick={handleFooterSocialClick}
+          onLogoClick={handleLogoClick}
+        />
 
-      <Cookies
-        onAccept={handleCookiesAccept}
-      />
-    </div>
+        {!cookiesAccepted && (
+          <Cookies
+            onAccept={handleCookiesAccept}
+          />
+        )}
+      </div>
+    </ErrorBoundary>
   );
 };
 

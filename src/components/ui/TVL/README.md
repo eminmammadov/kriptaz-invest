@@ -1,41 +1,35 @@
-# TVL Component
+# Hero Component
 
-A responsive, elegant component for displaying Total Value Locked (TVL) metrics and key statistics with smooth animations and professional typography.
+A modern, responsive Hero component that displays a mission statement and key performance metrics in a clean, elegant design.
 
 ## Features
 
-- **Elegant Typography**: Uses Playfair Display for content and Gellix for badges
-- **Smooth Animations**: Staggered fade-in animations for metrics
-- **Responsive Design**: Adaptive layout for mobile, tablet, and desktop
-- **Interactive Elements**: Hover effects and click handlers for metrics
-- **Accessibility**: Full ARIA support, keyboard navigation, and screen reader friendly
-- **TypeScript**: Complete type safety with proper interfaces
-- **CSS Modules**: Scoped styling following project conventions
+- **Mission Statement**: Prominent headline text that communicates the company's vision
+- **Key Metrics Grid**: Four key performance indicators displayed in a responsive grid
+- **Clean Typography**: Modern, readable fonts with proper hierarchy
+- **Responsive Design**: Optimized for both desktop and mobile devices
+- **Smooth Animations**: Subtle fade-in animations with staggered delays
+- **Accessibility**: Proper ARIA labels and keyboard navigation support
 
-## Installation
-
-The component is already integrated into the project. Import it from:
-
-```typescript
-import { TVL } from '@/components/TVL';
-```
-
-## Basic Usage
+## Usage
 
 ```tsx
-import { TVL } from '@/components/TVL';
+import TVL from '@/components/ui/TVL';
 
-function App() {
-  return (
-    <div>
-      {/* Your app content */}
-      
-      <TVL 
-        onMetricClick={(metric) => console.log('Metric clicked:', metric)}
-      />
-    </div>
-  );
-}
+// Basic usage with default metrics
+<TVL />
+
+// Custom mission statement and metrics
+<TVL 
+  title="Your company mission statement here"
+  subtitle="Optional subtitle for additional context"
+  metrics={[
+    { value: '100', label: 'Happy Customers' },
+    { value: '50M', label: 'Revenue' },
+    { value: '95%', label: 'Satisfaction Rate', superscript: '1' },
+    { value: '$2.5B', label: 'Market Cap' }
+  ]}
+/>
 ```
 
 ## Props
@@ -43,166 +37,47 @@ function App() {
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `className` | `string` | `''` | Additional CSS classes |
-| `title` | `string` | Default Ondo title | Main heading text |
+| `title` | `string` | `'Ondo is building the foundation for the future of finance.'` | Mission statement headline |
 | `subtitle` | `string` | `undefined` | Optional subtitle text |
-| `metrics` | `TVLMetric[]` | Default metrics array | Array of metric objects to display |
-| `onMetricClick` | `(metric: TVLMetric) => void` | `undefined` | Callback when a metric is clicked |
+| `metrics` | `TVLMetric[]` | Default Ondo metrics | Array of key performance metrics |
 
 ## TVLMetric Interface
 
-```typescript
+```tsx
 interface TVLMetric {
-  value: string;        // The main metric value (e.g., "10", "$1B")
-  label: string;        // Description label
-  badge?: string;       // Optional badge text (e.g., "TVL")
-  superscript?: string; // Optional superscript (e.g., "1")
+  value: string;        // The metric value (e.g., "100", "$1.41B")
+  label: string;        // Description of the metric
+  superscript?: string; // Optional superscript (e.g., footnote numbers)
 }
-```
-
-## Examples
-
-### Custom Title and Metrics
-```tsx
-const customMetrics = [
-  {
-    value: '25',
-    label: 'Active Networks'
-  },
-  {
-    value: '$5B',
-    label: 'Assets Under Management',
-    badge: 'AUM'
-  }
-];
-
-<TVL 
-  title="Building the next generation of DeFi infrastructure."
-  metrics={customMetrics}
-  onMetricClick={(metric) => console.log('Custom metric clicked:', metric)}
-/>
-```
-
-### With Subtitle
-```tsx
-<TVL 
-  title="Ondo is building the foundation for the future of finance."
-  subtitle="Trusted by institutions and individuals worldwide"
-  onMetricClick={(metric) => console.log('Metric clicked:', metric)}
-/>
-```
-
-### Minimal Configuration
-```tsx
-const minimalMetrics = [
-  {
-    value: '$2.5B',
-    label: 'Total Value Locked',
-    badge: 'TVL'
-  }
-];
-
-<TVL 
-  title="Simple and powerful DeFi solutions."
-  metrics={minimalMetrics}
-/>
 ```
 
 ## Default Metrics
 
-The component includes these default metrics based on Ondo Finance:
+The component comes with pre-configured metrics inspired by the reference design:
 
-- **10** - Supported Chains
-- **101** - Integrated Projects
-- **80%¹** - Yieldcoin Market Share (with superscript)
-- **$1B** - TVL (with badge)
-
-## Styling
-
-The component uses CSS Modules with the following classes:
-
-- `.tvlContainer` - Main container section
-- `.tvlContent` - Content wrapper with max-width
-- `.tvlHeader` - Header section with title/subtitle
-- `.tvlTitle` - Main title styling
-- `.metricsGrid` - Grid layout for metrics
-- `.metricItem` - Individual metric container
-- `.metricValue` - Large metric value text
-- `.metricLabel` - Metric description text
-- `.metricBadge` - Badge styling (e.g., "TVL")
-- `.metricSuperscript` - Superscript styling
-
-### Custom Styling
-```tsx
-<TVL 
-  className="my-custom-tvl"
-  onMetricClick={(metric) => console.log('Custom styled metric clicked:', metric)}
-/>
-```
+1. **10** - Supported Chains
+2. **127** - Integrated Projects  
+3. **80%** - Yieldcoin Market Share¹
+4. **$1.41B** - TVL
 
 ## Responsive Behavior
 
-- **Desktop**: 4-column grid with large typography
-- **Tablet (≤768px)**: 2-column grid with medium typography
-- **Mobile (≤480px)**: Single column with centered alignment and smaller typography
+- **Desktop (1200px+)**: 4-column grid layout
+- **Tablet (768px-1199px)**: 2-column grid layout
+- **Mobile (<768px)**: 2-column grid with centered alignment
+- **Small Mobile (<480px)**: Optimized spacing and typography
 
-## Accessibility Features
+## Styling
 
-- **ARIA Labels**: Proper role and aria attributes
-- **Keyboard Navigation**: Tab navigation and Enter/Space activation
-- **Screen Readers**: Descriptive labels for each metric
-- **Reduced Motion**: Respects `prefers-reduced-motion` setting
-- **High Contrast**: Enhanced visibility in high contrast mode
-- **Focus Management**: Clear focus indicators for keyboard users
+The component uses CSS modules with a clean, minimalist design:
+- White background with black text for high contrast
+- Large, bold numbers for metrics
+- Proper spacing and typography hierarchy
+- Smooth fade-in animations
 
-## Animations
+## Accessibility
 
-- **Staggered Entry**: Metrics animate in with 0.1s delays
-- **Smooth Transitions**: 0.6s ease-out animations
-- **Hover Effects**: Subtle lift and background changes
-- **Performance**: Hardware-accelerated transforms
-
-## Integration Examples
-
-### With Analytics
-```tsx
-const handleMetricClick = (metric: TVLMetric) => {
-  // Track metric interactions
-  gtag('event', 'metric_click', {
-    metric_value: metric.value,
-    metric_label: metric.label
-  });
-  
-  console.log('Metric clicked with analytics:', metric);
-};
-
-<TVL onMetricClick={handleMetricClick} />
-```
-
-### In a Dashboard
-```tsx
-<section className="dashboard-metrics">
-  <div className="container">
-    <h1>Platform Overview</h1>
-    <p>Real-time metrics and performance indicators</p>
-  </div>
-  
-  <TVL 
-    title="Leading the future of decentralized finance"
-    onMetricClick={handleMetricClick}
-  />
-</section>
-```
-
-## Browser Support
-
-- Modern browsers with CSS Grid support
-- Graceful fallback for older browsers
-- Hardware acceleration for smooth animations
-- SVG support for badges and icons
-
-## Performance
-
-- **Optimized Rendering**: Minimal re-renders with proper memoization
-- **Efficient Animations**: CSS-based animations for smooth performance
-- **Responsive Images**: Proper sizing and loading strategies
-- **Accessibility**: Screen reader optimized without performance impact
+- Proper ARIA labels for screen readers
+- Keyboard navigation support
+- Reduced motion support for users with vestibular disorders
+- High contrast mode support

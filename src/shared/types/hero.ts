@@ -5,8 +5,7 @@ export interface HeroProps {
   videoSrc?: string;
   videoOverlayImage?: string;
   title?: string;
-  leftText?: string;
-  rightText?: string;
+  description?: string;
   onVideoLoad?: () => void;
   onVideoError?: (error: Event) => void;
 }

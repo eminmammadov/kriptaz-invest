@@ -1,4 +1,4 @@
-// Type definitions for TVL component
+// Type definitions for Hero component (formerly TVL)
 
 export interface TVLMetric {
   value: string;
@@ -12,7 +12,6 @@ export interface TVLProps {
   title?: string;
   subtitle?: string;
   metrics?: TVLMetric[];
-  onMetricClick?: (metric: TVLMetric) => void;
 }
 
 export interface TVLState {

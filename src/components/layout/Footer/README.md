@@ -28,10 +28,6 @@ Footer/
 ├── Social/
 │   ├── Social.tsx         # Social media component
 │   └── Social.module.css  # Social styles
-├── examples/
-│   └── FooterExamples.tsx # Usage examples
-├── __tests__/
-│   └── Footer.test.tsx    # Component tests
 ├── index.ts               # Export file
 └── README.md              # This file
 ```
