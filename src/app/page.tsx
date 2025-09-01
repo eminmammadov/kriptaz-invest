@@ -2,7 +2,7 @@
 'use client';
 
 import { Hero } from '@/components/ui/Hero';
-import { ProjectSlider, ProjectLogo } from '@/components/ui/ProjectSlider';
+// import { ProjectSlider, ProjectLogo } from '@/components/ui/ProjectSlider';
 import { TVL } from '@/components/ui/TVL';
 import Rates from '@/components/ui/Rates';
 
@@ -18,12 +18,12 @@ export default function Home() {
     // TODO: Implement proper error tracking (e.g., Sentry, LogRocket)
   };
 
-  const handleProjectLogoClick = (logo: ProjectLogo) => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Project logo clicked:', logo.name);
-    }
-    // TODO: Implement analytics tracking
-  };
+  // const handleProjectLogoClick = (logo: ProjectLogo) => {
+  //   if (process.env.NODE_ENV === 'development') {
+  //     console.log('Project logo clicked:', logo.name);
+  //   }
+  //   // TODO: Implement analytics tracking
+  // };
 
   return (
     <>
@@ -36,9 +36,9 @@ export default function Home() {
         onVideoError={handleVideoError}
       />
 
-      <ProjectSlider
+      {/* <ProjectSlider
         onLogoClick={handleProjectLogoClick}
-      />
+      /> */}
 
       <TVL />
 
