@@ -375,7 +375,7 @@
 /* Extra small screens */
 @media (max-width: 395px) {
   .heroSection {
-    height: 45vh;
+    height: 65vh;
     min-height: 300px;
   }
 
