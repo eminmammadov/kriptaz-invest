@@ -3,7 +3,7 @@
 .tvlContainer {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  padding: 4rem 0;
+  padding: 6rem 0;
   background-color: var(--color-light-gray) !important;
   position: relative;
   overflow-x: hidden;
@@ -169,7 +169,7 @@
 
 @media (max-width: 480px) {
   .tvlContainer {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
 
   .metricsGrid {
