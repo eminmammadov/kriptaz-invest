@@ -223,6 +223,10 @@
   font-size: 0.75rem;
   font-weight: 400;
   color: #ffffff;
+  font-family: var(--font-header) !important;
+}
+
+.copyrightTextSpan {
   font-family: var(--font-gellix) !important;
 }
 
