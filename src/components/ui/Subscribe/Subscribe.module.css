@@ -16,7 +16,7 @@
   height: 100%;
   background-image: url('/images/subscribe.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
 }
