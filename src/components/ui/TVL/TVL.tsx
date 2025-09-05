@@ -7,7 +7,7 @@ import styles from './TVL.module.css';
 // Default metrics based on the image
 const defaultMetrics: TVLMetric[] = [
   {
-    value: '10',
+    value: '9',
     label: 'Friend Members'
   },
   {
