@@ -1,13 +1,9 @@
-// Export all Footer components for easy importing
+// Export Footer component
 export { default as Footer } from './Footer';
-export { default as Link } from './Link/Link';
-export { default as Social } from './Social/Social';
 
 // Re-export types
 export type {
   FooterProps,
   FooterLink,
-  SocialLink,
-  LinkProps,
-  SocialProps
+  SocialLink
 } from '@/shared/types/footer';

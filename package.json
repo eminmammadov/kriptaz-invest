@@ -1,5 +1,5 @@
 {
-  "name": "kriptaz-invest",
+  "name": "invest-founders",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "next": "15.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.21",
     "@types/node": "^20",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
