@@ -3,26 +3,44 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Link from './Link/Link';
+import Link from 'next/link';
 import Social from './Social/Social';
-import { FooterProps, FooterLink, SocialLink } from '@/shared/types/footer';
+import { FooterProps, SocialLink } from '@/shared/types/footer';
 import styles from './Footer.module.css';
 
-// Default footer links based on the design
-const defaultFooterLinks: FooterLink[] = [
+// ============================================================================
+// FOOTER CONTENT CONFIGURATION - CENTRALIZED TEXT MANAGEMENT
+// ============================================================================
+
+// Navigation menu items
+const navigationMenu = [
   {
-    label: 'Terms of Service',
-    href: '/terms',
-    external: false
+    title: 'Invest',
+    items: [
+      { label: 'About us', href: '/about', external: false },
+      { label: 'Members', href: '/members', external: false },
+      { label: 'Insights', href: '/insights', external: false },
+      { label: 'Contact', href: '/contact', external: false }
+      
+    ]
   },
   {
-    label: 'Privacy Policy',
-    href: '/privacy',
-    external: false
+    title: 'Legal',
+    items: [
+      { label: 'Terms of Service', href: '/terms', external: false },
+      { label: 'Privacy Policy', href: '/privacy', external: true }
+    ]
+  },
+  {
+    title: 'Company',
+    items: [
+      { label: 'Join', href: '/join', external: false },
+      { label: 'Portfolio', href: '/portfolio', external: true },
+    ]
   }
 ];
 
-// Default social links
+// Social media links
 const defaultSocialLinks: SocialLink[] = [
   {
     name: 'X',
@@ -32,15 +50,45 @@ const defaultSocialLinks: SocialLink[] = [
   }
 ];
 
+// Legal disclaimer content
+const legalContent = {
+  disclaimers: [
+    "* The Invest Founders Fund and its associated crypto investment services referenced herein are not registered securities under applicable securities laws and regulations. Investment opportunities offered through our platform shall not be considered as registered investment products and may be subject to regulatory restrictions in certain jurisdictions.",
+    "The Fund, established by close friends and managed by Invest Founders, operates as an alternative investment vehicle focusing on cryptocurrency and technology assets. While we adhere to official regulatory standards, investors should be aware that crypto investments carry substantial risks and are subject to high volatility.",
+    "Our DDGO (Dama Dama Göl Olar) investment principle and weekly allocation strategies are proprietary methodologies that do not guarantee future performance. Past performance, if any, is not indicative of future results. The Fund's disciplined approach to crypto asset allocation may result in partial or total loss of invested capital.",
+    "Invest Founders, as the Fund manager, provides investment management services but makes no representations or warranties regarding investment outcomes. The Fund is not registered as an investment company under applicable investment company regulations.",
+    "RISK DISCLOSURE: Cryptocurrency investments involve significant risks, including but not limited to: market volatility, regulatory changes, technological risks, liquidity constraints, and potential total loss of investment. Weekly savings allocated to crypto assets through our platform may fluctuate substantially in value.",
+    "Nothing herein constitutes an offer to sell or solicitation to buy any securities or investment products. Participation in the Fund requires acceptance of additional terms and conditions. Prospective investors should conduct independent due diligence and consult with qualified financial advisors before making investment decisions.",
+    "For additional terms and conditions, please visit: investfounders.com/terms, docs.investfounders.com, and investfounders.com."
+  ],
+  notes: [
+    {
+      number: "1.",
+      text: "Fund performance metrics are calculated based on changes in net asset value over specified periods and may not accurately reflect actual investor returns due to the timing of contributions and withdrawals."
+    },
+    {
+      number: "2.",
+      text: "Investment allocations and returns are subject to market conditions as of the stated date. Weekly contribution amounts and investment strategies may be modified at the Funds discretion."
+    },
+    {
+      number: "3.",
+      text: "Regulatory compliance standards referenced are based on current interpretations and may change over time. Additional restrictions and requirements may apply."
+    }
+  ]
+};
+
+// Brand information
+const brandInfo = {
+  logoAlt: "Invest Founders",
+  logoAriaLabel: "Invest Founders - Go to homepage"
+};
+
 /**
- * Main Footer component that combines Logo, Links, and Social components
- * Features responsive design matching the provided designs exactly
+ * Footer component based on reference design
+ * Features navigation menu, legal disclaimers, and company branding
  */
 const Footer: React.FC<FooterProps> = ({
   className = '',
-  companyName = 'Invest Founders',
-  copyrightYear = '2025',
-  links = defaultFooterLinks,
   socialLinks = defaultSocialLinks,
   onLinkClick,
   onSocialClick,
@@ -48,12 +96,11 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   const router = useRouter();
 
-  const handleLinkClick = (link: FooterLink) => {
+  const handleLinkClick = (href: string, external: boolean) => {
     if (onLinkClick) {
-      onLinkClick(link);
-    } else if (!link.external) {
-      // Navigate using Next.js router for internal links
-      router.push(link.href);
+      onLinkClick({ label: '', href, external });
+    } else if (!external) {
+      router.push(href);
     }
   };
 
@@ -61,7 +108,6 @@ const Footer: React.FC<FooterProps> = ({
     if (onLogoClick) {
       onLogoClick();
     } else {
-      // Navigate to home page
       router.push('/');
     }
   };
@@ -70,7 +116,6 @@ const Footer: React.FC<FooterProps> = ({
     if (onSocialClick) {
       onSocialClick(social);
     }
-    // Default behavior is handled in Social component
   };
 
   return (
@@ -79,40 +124,55 @@ const Footer: React.FC<FooterProps> = ({
       role="contentinfo"
     >
       <div className={styles.container}>
-        {/* Main Footer Content */}
-        <div className={styles.footerContent}>
-          {/* Disclaimer Text */}
-          <div className={styles.disclaimerSection}>
-            <p className={styles.disclaimerText}>
-              IMPORTANT LEGAL DISCLAIMERS AND RISK WARNINGS
-              The Invest Founders (Fund) and its associated crypto investment services referenced herein are not registered securities under applicable securities laws and regulations. Investment opportunities offered through our platform shall not be considered as registered investment products and may be subject to regulatory restrictions in certain jurisdictions.
+        {/* Top Section - Navigation Menu */}
+        <div className={styles.navigationSection}>
+          {navigationMenu.map((section) => (
+            <div key={section.title} className={styles.navColumn}>
+              <h3 className={styles.navTitle}>{section.title}</h3>
+              <ul className={styles.navList}>
+                {section.items.map((item) => (
+                  <li key={item.label} className={styles.navItem}>
+                    <Link
+                      href={item.href}
+                      onClick={() => handleLinkClick(item.href, item.external)}
+                      className={styles.navLink}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                    >
+                      {item.label}
+                      {item.external && <span className={styles.externalIcon}>↗</span>}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-              
-              The Fund, established by close friends and managed by Kriptaz Blockchain, operates as an alternative investment vehicle focusing on cryptocurrency and technology assets. While we adhere to official regulatory standards, investors should be aware that crypto investments carry substantial risks and are subject to high volatility.
-              
-              Our DDGO (Dama Dama Göl Olar) investment principle and weekly allocation strategies are proprietary methodologies that do not guarantee future performance. Past performance, if any, is not indicative of future results. The Funds disciplined approach to crypto asset allocation may result in partial or total loss of invested capital.
-              
-              Kriptaz Blockchain, as the Fund manager, provides investment management services but makes no representations or warranties regarding investment outcomes. The Fund is not registered as an investment company under applicable investment company regulations.
-              
-              RISK DISCLOSURE: Cryptocurrency investments involve significant risks, including but not limited to: market volatility, regulatory changes, technological risks, liquidity constraints, and potential total loss of investment. Weekly savings allocated to crypto assets through our platform may fluctuate substantially in value.
-              
-              Nothing herein constitutes an offer to sell or solicitation to buy any securities or investment products. Participation in the Fund requires acceptance of additional terms and conditions. Prospective investors should conduct independent due diligence and consult with qualified financial advisors before making investment decisions.
-            </p>
-            <p className={styles.disclaimerText}>
-              [1] Fund performance metrics are calculated based on changes in net asset value over specified periods and may not accurately reflect actual investor returns due to the timing of contributions and withdrawals.
-            </p>
-            <p className={styles.disclaimerText}>
-              [2] Investment allocations and returns are subject to market conditions as of the stated date. Weekly contribution amounts and investment strategies may be modified at the Funds discretion.
-            </p>
-            <p className={styles.disclaimerText}>
-              [3] Regulatory compliance standards referenced are based on current interpretations and may change over time. Additional restrictions and requirements may apply.
-            </p>
+        {/* Middle Section - Legal Disclaimers */}
+        <div className={styles.legalSection}>
+          <div className={styles.disclaimerText}>
+            {legalContent.disclaimers.map((disclaimer, index) => (
+              <p key={index}>{disclaimer}</p>
+            ))}
           </div>
 
-          {/* Company Logo */}
-          <div className={styles.logoSection}>
+          {/* Numbered Notes */}
+          <div className={styles.notesSection}>
+            {legalContent.notes.map((note, index) => (
+              <div key={index} className={styles.note}>
+                <span className={styles.noteNumber}>{note.number}</span>
+                <span className={styles.noteText}>{note.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Section - Company Branding */}
+        <div className={styles.brandSection}>
+          <div className={styles.brandContent}>
             <div
-              className={styles.footerLogo}
+              className={styles.companyLogo}
               onClick={handleLogoClick}
               role="button"
               tabIndex={0}
@@ -122,49 +182,44 @@ const Footer: React.FC<FooterProps> = ({
                   handleLogoClick();
                 }
               }}
-              aria-label="Kriptaz Invest - Go to homepage"
+              aria-label={brandInfo.logoAriaLabel}
             >
               <Image
                 src="/logos/kriptaz-invest-full-white-logo.svg"
-                alt="Kriptaz Invest"
-                width={400}
-                height={120}
+                alt={brandInfo.logoAlt}
+                width={100}
+                height={30}
                 className={styles.logoImage}
                 priority
               />
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className={styles.bottomSection}>
-          {/* Left side: Copyright and Links */}
-          <div className={styles.leftSection}>
-            <span className={styles.copyright}>
-              {companyName} © {copyrightYear}
-            </span>
-            <div className={styles.linksContainer}>
-              {links.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  external={link.external}
-                  onClick={() => handleLinkClick(link)}
-                  className={styles.footerLink}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            
+            {/* Right Side - Copyright, Links and Social */}
+            <div className={styles.rightSection}>
+              {/* Copyright and Links */}
+              <div className={styles.copyrightSection}>
+                <div className={styles.copyrightText}>
+                  <span>Invest Founders © 2025</span>
+                  <span className={styles.separator}>-</span>
+                  <Link href="/terms" className={styles.copyrightLink}>
+                    Terms of Service
+                  </Link>
+                  <span className={styles.separator}>-</span>
+                  <Link href="/privacy" className={styles.copyrightLink}>
+                    Privacy Policy
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Social Links */}
+              <div className={styles.socialSection}>
+                <Social
+                  links={socialLinks}
+                  onSocialClick={handleSocialClick}
+                  className={styles.socialLinks}
+                />
+              </div>
             </div>
-          </div>
-
-          {/* Right side: Social Media */}
-          <div className={styles.rightSection}>
-            <Social
-              links={socialLinks}
-              onSocialClick={handleSocialClick}
-              className={styles.socialSection}
-            />
           </div>
         </div>
       </div>

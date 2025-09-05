@@ -156,7 +156,7 @@ const Hero: React.FC<HeroProps> = ({
                 Portfolio
               </Link>
               <Link href="/about" className={styles.readMoreLink}>
-                Read more
+                Read about us
               </Link>
             </div>
           </div>

@@ -47,6 +47,7 @@ html, body {
   /* Typography - Font variables */
   --font-primary: var(--font-playfair, "Playfair", serif);
   --font-header: "Gellix", sans-serif;
+  --font-gellix: "Gellix", sans-serif;
 
   /* Legacy support */
   --background: var(--color-white);
@@ -70,7 +71,7 @@ html, body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-primary) !important;
+  font-family: var(--font-primary);
   margin: 0;
   padding: 0;
   padding-top: 4rem; /* Add space for fixed header */
