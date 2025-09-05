@@ -15,7 +15,7 @@ import styles from './Footer.module.css';
 // Navigation menu items
 const navigationMenu = [
   {
-    title: 'Invest',
+    title: 'Fund',
     items: [
       { label: 'About us', href: '/about', external: false },
       { label: 'Members', href: '/members', external: false },
@@ -25,17 +25,17 @@ const navigationMenu = [
     ]
   },
   {
+    title: 'Auth',
+    items: [
+      { label: 'Join', href: '/join', external: false },
+      { label: 'Portfolio', href: '/portfolio', external: true },
+    ]
+  },
+  {
     title: 'Legal',
     items: [
       { label: 'Terms of Service', href: '/terms', external: false },
       { label: 'Privacy Policy', href: '/privacy', external: true }
-    ]
-  },
-  {
-    title: 'Company',
-    items: [
-      { label: 'Join', href: '/join', external: false },
-      { label: 'Portfolio', href: '/portfolio', external: true },
     ]
   }
 ];
