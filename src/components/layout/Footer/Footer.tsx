@@ -4,6 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MdOutlineArrowOutward } from "react-icons/md";
 import Social from './Social/Social';
 import { FooterProps, SocialLink } from '@/shared/types/footer';
 import styles from './Footer.module.css';
@@ -139,8 +140,8 @@ const Footer: React.FC<FooterProps> = ({
                       target={item.external ? '_blank' : undefined}
                       rel={item.external ? 'noopener noreferrer' : undefined}
                     >
-                      {item.label}
-                      {item.external && <span className={styles.externalIcon}>↗</span>}
+                                                     {item.label}
+                               {item.external && <MdOutlineArrowOutward className={styles.externalIcon} />}
                     </Link>
                   </li>
                 ))}
