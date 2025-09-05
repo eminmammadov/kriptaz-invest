@@ -162,7 +162,6 @@
   top: 4rem; /* Position below header */
   left: 0;
   width: 100vw;
-  height: calc(100vh - 4rem); /* Full viewport height minus header */
   min-height: calc(100vh - 4rem); /* Ensure minimum height */
   max-height: calc(100vh - 4rem); /* Prevent overflow */
   background: #E7E7E7;
