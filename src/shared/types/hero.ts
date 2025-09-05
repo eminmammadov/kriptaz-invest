@@ -3,7 +3,6 @@
 export interface HeroProps {
   className?: string;
   videoSrc?: string;
-  videoOverlayImage?: string;
   title?: string;
   description?: string;
   onVideoLoad?: () => void;

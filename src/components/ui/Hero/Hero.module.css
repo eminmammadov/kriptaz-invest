@@ -52,31 +52,22 @@
   background-color: var(--color-primary-black);
 }
 
-/* SVG Overlay Styles */
-.videoOverlayImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 2;
-  pointer-events: none;
-  min-width: 100%;
-  min-height: 100%;
-}
 
-.videoOverlayImage[src$=".svg"] {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  flex-shrink: 0;
-  transform: scale(1);
-  transform-origin: center center;
+
+/* Video Error Fallback */
+.videoErrorFallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  color: white;
+  font-family: var(--font-primary);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  opacity: 0.8;
 }
 
 /* Video Overlay for Better Text Contrast - Koyu siyah */
@@ -116,21 +107,21 @@
 /* Main Content */
 .mainContent {
   max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
-/* Title Styles - Genişlik 350px */
+/* Title Styles - Sol tarafa hizalı */
 .heroTitle {
   font-family: var(--font-header) !important;
-  font-size: 2.75rem;
+  font-size: 5.5rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
   color: white;
-  margin: 2.5rem auto;
+  margin: 2.5rem 0;
   letter-spacing: -0.02em;
-  text-align: center;
-  max-width: 450px;
+  text-align: left;
+  max-width: 650px;
 }
 
 /* Description Styles */
@@ -139,20 +130,22 @@
 }
 
 .descriptionText {
-  max-width: 700px;
+  max-width: 500px;
   font-family: var(--font-primary);
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.6;
   color: white;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
 /* Button Container */
 .buttonContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -189,10 +182,27 @@
   outline-offset: 2px;
 }
 
+/* Read More Link */
+.readMoreLink {
+  color: white;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+  text-underline-offset: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.readMoreLink:hover {
+  text-decoration-color: white;
+  opacity: 0.8;
+}
+
 /* Partner Logos Container */
 .partnerLogosContainer {
   width: 100%;
-  padding: 2rem 0;
   overflow: hidden;
 }
 
@@ -272,19 +282,28 @@
     padding: 1.5rem 1rem;
   }
 
+  .mainContent {
+    text-align: center;
+  }
+
   .heroTitle {
     font-size: 2rem;
     margin: 2rem auto;
     max-width: 300px;
+    text-align: center;
   }
 
   .descriptionText {
     font-size: 1rem;
     margin-bottom: 2rem;
+    text-align: center;
   }
 
   .buttonContainer {
     margin-bottom: 1.5rem;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.75rem;
   }
 
   .portfolioButton {
@@ -302,18 +321,6 @@
     height: 30px;
   }
 
-  /* SVG overlay responsive */
-  .videoOverlayImage {
-    transform: scale(0.001);
-  }
-
-  .videoOverlayImage[src$=".svg"] {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-  }
 }
 
 @media (max-width: 580px) {
@@ -326,15 +333,20 @@
     font-size: 1.75rem;
     margin: 1.5rem auto;
     max-width: 280px;
+    text-align: center;
   }
 
   .descriptionText {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
 
   .buttonContainer {
     margin-bottom: 1rem;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.75rem;
   }
 
   .portfolioButton {
@@ -351,31 +363,12 @@
     margin: 0 0.75rem;
   }
 
-  .partnerLogo {
-    width: 50px;
-    height: 25px;
-  }
-
-  /* SVG overlay mobile */
-  .videoOverlayImage {
-    transform: scale(1.002);
-  }
-
-  .videoOverlayImage[src$=".svg"] {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: scale(1.05);
-    transform-origin: center center;
-  }
 }
 
 /* Extra small screens */
 @media (max-width: 395px) {
   .heroSection {
-    height: 75vh;
+    height: 70vh;
     min-height: 300px;
   }
 
@@ -383,15 +376,20 @@
     font-size: 1.5rem;
     margin: 1rem auto;
     max-width: 250px;
+    text-align: center;
   }
 
   .descriptionText {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .buttonContainer {
     margin-bottom: 0.75rem;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5rem;
   }
 
   .portfolioButton {
@@ -408,40 +406,6 @@
     margin: 0 0.5rem;
   }
 
-  .partnerLogo {
-    width: 45px;
-    height: 22px;
-  }
-
-  .videoOverlayImage[src$=".svg"] {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: scale(1.1);
-    transform-origin: center center;
-  }
-
-  .mobileOverlay {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: scale(1.1);
-    transform-origin: center center;
-  }
-
-  .videoOverlayImage[src$="video-filter-mobile.svg"] {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: scale(1.1);
-    transform-origin: center center;
-  }
 }
 
 /* Accessibility - Reduced Motion */

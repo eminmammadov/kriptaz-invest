@@ -13,59 +13,21 @@ import styles from './Hero.module.css';
 const Hero: React.FC<HeroProps> = ({
   className = '',
   videoSrc = '/videos/hero-video.mp4',
-  videoOverlayImage = '/images/video-filter.svg',
-  title = 'Investors established crypto investment fund',
+  title = 'Crypto investment and asset fund',
   description = 'Founded with distinguished investors, our regulated fund platform applies disciplined DDGO principles to allocate weekly savings into crypto assets, ensuring transparent, reliable, and sustainable growth.',
   onVideoLoad,
   onVideoError
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [screenSize, setScreenSize] = useState({
-    isMobileSmall: false,
-    isMobile: false,
-    isTablet: false,
-    isDesktop: false,
-  });
-
-  // Hook to detect screen size for responsive behavior
-  useEffect(() => {
-    const checkScreenSize = () => {
-      const width = window.innerWidth;
-      setScreenSize({
-        isMobileSmall: width <= 395,
-        isMobile: width <= 640,
-        isTablet: width > 640 && width <= 1024,
-        isDesktop: width > 1024,
-      });
-    };
-
-    // Check initial screen size
-    checkScreenSize();
-
-    // Add event listener for window resize with debounce
-    let timeoutId: NodeJS.Timeout;
-    const debouncedResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(checkScreenSize, 150);
-    };
-
-    window.addEventListener('resize', debouncedResize);
-
-    // Cleanup event listener
-    return () => {
-      window.removeEventListener('resize', debouncedResize);
-      clearTimeout(timeoutId);
-    };
-  }, []);
-
-  // Determine which SVG overlay to use based on screen size
-  const currentOverlayImage = screenSize.isMobileSmall
-    ? '/images/video-filter-mobile.svg'
-    : videoOverlayImage;
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    const handleCanPlay = () => {
+      onVideoLoad?.();
+    };
 
     const handleLoadedData = () => {
       onVideoLoad?.();
@@ -73,13 +35,36 @@ const Hero: React.FC<HeroProps> = ({
 
     const handleError = (error: Event) => {
       console.error('Hero video failed to load:', error);
+      setVideoError(true);
       onVideoError?.(error);
     };
 
+    // Video yükleme event'leri
+    video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('error', handleError);
 
+    // Video'yu hemen yükle ve oynat (arka plan için)
+    try {
+      video.load();
+      // Auto-play için user interaction gerekebilir
+      video.play().catch(() => {
+        // User interaction sonrası tekrar dene
+        const playVideo = () => {
+          video.play().catch(console.error);
+          document.removeEventListener('click', playVideo);
+          document.removeEventListener('touchstart', playVideo);
+        };
+        document.addEventListener('click', playVideo);
+        document.addEventListener('touchstart', playVideo);
+      });
+    } catch (err) {
+      console.error('Video load error:', err);
+      setVideoError(true);
+    }
+
     return () => {
+      video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('error', handleError);
     };
@@ -123,22 +108,27 @@ const Hero: React.FC<HeroProps> = ({
                 disableRemotePlayback
                 aria-hidden="true"
                 data-testid="hero-video"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                style={{
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                  WebkitUserSelect: 'none',
+                  MozUserSelect: 'none',
+                  msUserSelect: 'none'
+                }}
               >
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
-              {/* SVG Overlay - Responsive based on screen size */}
-              {currentOverlayImage && (
-                <Image
-                  src={currentOverlayImage}
-                  alt=""
-                  fill
-                  className={`${styles.videoOverlayImage} ${screenSize.isMobileSmall ? styles.mobileOverlay : ''}`}
-                  aria-hidden="true"
-                  priority
-                />
+              {/* Video Error Fallback */}
+              {videoError && (
+                <div className={styles.videoErrorFallback}>
+                  <p>Background video unavailable</p>
+                </div>
               )}
+
 
               {/* Video Overlay for Better Text Contrast */}
               <div className={styles.videoOverlay} aria-hidden="true" />
@@ -160,10 +150,13 @@ const Hero: React.FC<HeroProps> = ({
               <p className={styles.descriptionText}>{description}</p>
             </div>
 
-            {/* Portfolio Button */}
+            {/* Portfolio Button and Read More Link */}
             <div className={styles.buttonContainer}>
               <Link href="/portfolio" className={styles.portfolioButton}>
                 Portfolio
+              </Link>
+              <Link href="/about" className={styles.readMoreLink}>
+                Read more
               </Link>
             </div>
           </div>

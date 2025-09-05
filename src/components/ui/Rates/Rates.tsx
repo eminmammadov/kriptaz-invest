@@ -29,8 +29,8 @@ const defaultRateCards: RateCard[] = [
 ];
 
 const Rates: React.FC<RatesProps> = ({
-  title = "Institutional-Grade Cash Management",
-  description = "Earn reliable, high quality yield backed by short-term US Treasuries, distributed daily. Built with institutional-grade transparency.",
+  title = "Our Technology, Your Tokens",
+  description = "Our Nexus technology enables issuers of tokenized US Treasuries and stablecoins to offer instant minting and redemption to their clients.",
   cards = defaultRateCards,
   className = ''
 }) => {
@@ -56,6 +56,22 @@ const Rates: React.FC<RatesProps> = ({
               <h2 className={styles.title}>{title}</h2>
               <p className={styles.description}>{description}</p>
               
+              {/* Company Logo */}
+              <div className={styles.companyLogo}>
+                <Image
+                  src="/images/partners/blackrock.svg"
+                  alt="BlackRock"
+                  width={120}
+                  height={40}
+                  className={styles.logoImage}
+                />
+              </div>
+              
+              {/* Transition Line */}
+              <div className={styles.transitionLine}>
+                <div className={styles.lineProgress} style={{ width: `${((currentIndex + 1) / cards.length) * 100}%` }}></div>
+              </div>
+              
               {/* Navigation Arrows */}
               <div className={styles.navigation}>
                 <button 
@@ -63,34 +79,42 @@ const Rates: React.FC<RatesProps> = ({
                   onClick={prevCard}
                   aria-label="Previous rate card"
                 >
-                  ←
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                  </svg>
                 </button>
                 <button 
                   className={styles.navButton}
                   onClick={nextCard}
                   aria-label="Next rate card"
                 >
-                  →
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                  </svg>
                 </button>
               </div>
             </div>
 
-            {/* Right Content - Rate Cards */}
+            {/* Right Content - Enhanced Slider with Images Only */}
             <div className={styles.rightContent}>
-              <div className={styles.cardsContainer}>
+              <div className={styles.sliderContainer}>
                 {cards.map((card, index) => (
                   <div
                     key={card.id}
-                    className={`${styles.rateCard} ${index === currentIndex ? styles.active : ''}`}
+                    className={`${styles.sliderItem} ${index === currentIndex ? styles.active : ''} ${index < currentIndex ? styles.previous : ''} ${index > currentIndex ? styles.next : ''}`}
                   >
-                    <Image
-                      src={card.image}
-                      alt={`${card.logo} rate card`}
-                      width={400}
-                      height={200}
-                      className={styles.cardImage}
-                      priority={index === 0}
-                    />
+                    <div className={styles.sliderContent}>
+                      <div className={styles.cardImage}>
+                        <Image
+                          src={card.image}
+                          alt={`${card.logo} rate card`}
+                          width={500}
+                          height={350}
+                          className={styles.image}
+                          priority={index === 0}
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -109,19 +133,34 @@ const Rates: React.FC<RatesProps> = ({
                   onClick={prevCard}
                   aria-label="Previous rate card"
                 >
-                  ←
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                  </svg>
                 </button>
                 <button 
                   className={styles.mobileNavButton}
                   onClick={nextCard}
                   aria-label="Next rate card"
                 >
-                  →
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                  </svg>
                 </button>
               </div>
             </div>
 
             <p className={styles.mobileDescription}>{description}</p>
+
+            {/* Mobile Company Logo */}
+            <div className={styles.mobileCompanyLogo}>
+              <Image
+                src="/images/partners/blackrock.svg"
+                alt="BlackRock"
+                width={100}
+                height={32}
+                className={styles.mobileLogoImage}
+              />
+            </div>
 
             {/* Mobile Rate Card */}
             <div className={styles.mobileCardContainer}>
