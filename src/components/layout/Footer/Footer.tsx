@@ -186,10 +186,10 @@ const Footer: React.FC<FooterProps> = ({
               aria-label={brandInfo.logoAriaLabel}
             >
               <Image
-                src="/logos/kriptaz-invest-full-white-logo.svg"
+                src="/logos/kriptaz-invest-mobile-logo.svg"
                 alt={brandInfo.logoAlt}
-                width={100}
-                height={30}
+                width={200}
+                height={50}
                 className={styles.logoImage}
                 priority
               />

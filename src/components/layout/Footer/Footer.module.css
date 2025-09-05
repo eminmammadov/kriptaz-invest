@@ -159,7 +159,7 @@
 
 .logoImage {
   height: auto;
-  max-width: 100px;
+  max-width: 200px;
 }
 
 .socialSection {
@@ -321,7 +321,9 @@
   }
   
   .logoImage {
-    max-width: 250px;
+    max-width: 80vw;
+    width: 100%;
+    height: auto;
   }
   
   .socialContainer {
@@ -371,7 +373,10 @@
   }
   
   .logoImage {
-    max-width: 200px;
+    max-width: 80vw;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
   }
   
   .copyrightText {
