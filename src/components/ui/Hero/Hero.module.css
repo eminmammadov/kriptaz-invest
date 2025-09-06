@@ -325,7 +325,7 @@
 
 @media (max-width: 580px) {
   .heroSection {
-    height: 75vh;
+    height: 80vh;
     min-height: 350px;
   }
 
@@ -368,7 +368,7 @@
 /* Extra small screens */
 @media (max-width: 395px) {
   .heroSection {
-    height: 75vh;
+    height: 80vh;
     min-height: 300px;
   }
 
