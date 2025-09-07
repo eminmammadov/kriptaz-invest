@@ -12,10 +12,14 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "highlight.js": "^11.11.1",
     "next": "15.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
     "zustand": "^5.0.8"
   },
   "devDependencies": {

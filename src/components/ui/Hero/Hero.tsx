@@ -70,13 +70,18 @@ const Hero: React.FC<HeroProps> = ({
     };
   }, [onVideoLoad, onVideoError]);
 
-  // Partner logos array - sonsuz döngü için çoğaltılmış
+  // Partner logos array - images/partners/ klasöründeki tüm logolar
   const baseLogos = [
-    { src: '/images/projects/sui.svg', alt: 'Sui' },
-    { src: '/images/projects/aptos.svg', alt: 'APTOS' },
-    { src: '/images/partners/blackrock.svg', alt: 'AON' },
-    { src: '/images/partners/blackrock.svg', alt: 'Goldman Sachs' },
-    { src: '/images/projects/ripple.svg', alt: 'Ripple' }
+    { src: '/images/partners/arbitrum.svg', alt: 'Arbitrum' },
+    { src: '/images/partners/arkham.svg', alt: 'Arkham' },
+    { src: '/images/partners/blackrock.svg', alt: 'BlackRock' },
+    { src: '/images/partners/ethereum.svg', alt: 'Ethereum' },
+    { src: '/images/partners/grayscale.svg', alt: 'Grayscale' },
+    { src: '/images/partners/jupiter.svg', alt: 'Jupiter' },
+    { src: '/images/partners/ondo.svg', alt: 'Ondo' },
+    { src: '/images/partners/ripple.svg', alt: 'Ripple' },
+    { src: '/images/partners/solana.svg', alt: 'Solana' },
+    { src: '/images/partners/xstocks.svg', alt: 'XStocks' }
   ];
 
   // Sonsuz döngü için 4 kez çoğalt

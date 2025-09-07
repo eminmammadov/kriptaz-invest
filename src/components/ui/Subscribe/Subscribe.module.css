@@ -35,13 +35,16 @@
   position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 750px;
+  max-width: 1600px;
   padding: 2rem;
   margin: 0 auto;
 }
 
 .textContent {
   margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {

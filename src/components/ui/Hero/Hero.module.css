@@ -95,7 +95,7 @@
 }
 
 .contentWrapper {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
@@ -106,7 +106,7 @@
 
 /* Main Content */
 .mainContent {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0;
   text-align: left;
 }
@@ -116,7 +116,7 @@
   font-family: var(--font-header) !important;
   font-size: 5.5rem;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.9;
   color: white;
   margin: 2.5rem 0;
   letter-spacing: -0.02em;
@@ -291,6 +291,11 @@
     margin: 2rem auto;
     max-width: 300px;
     text-align: center;
+  }
+
+  .descriptionContainer {
+    justify-content: center !important;
+    display: flex !important;
   }
 
   .descriptionText {
