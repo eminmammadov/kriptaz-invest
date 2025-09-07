@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getArticleBySlug, getArticles } from '@/app/insights/data/articles';
+import { getArticleBySlug, getArticles, getFeaturedArticle } from '@/app/insights/data/articles';
 import { getMarkdownContent } from '@/app/insights/utils/markdown';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,14 +9,14 @@ import Link from 'next/link';
 import styles from './ArticlePage.module.css';
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
   const articles = getArticles();
-  const featuredArticle = getArticles().find(article => article.featured);
+  const featuredArticle = getFeaturedArticle();
   
   const allArticles = [...articles];
   if (featuredArticle) {
@@ -29,7 +29,8 @@ export async function generateStaticParams() {
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const article = getArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   
   if (!article) {
     notFound();
@@ -70,13 +71,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </header>
 
         <div className={styles.content}>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
-            className={styles.markdown}
-          >
-            {markdownContent}
-          </ReactMarkdown>
+          <div className={styles.markdown}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+            >
+              {markdownContent}
+            </ReactMarkdown>
+          </div>
         </div>
       </article>
     </div>
