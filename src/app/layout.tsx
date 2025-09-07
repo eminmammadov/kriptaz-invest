@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 import ClientLayout from '@/components/layout/ClientLayout';
 
 const playfair = Playfair({

@@ -1,11 +1,11 @@
 
 'use client';
 
-import { Hero } from '@/components/ui/Hero';
-// import { ProjectSlider, ProjectLogo } from '@/components/ui/ProjectSlider';
-import { TVL } from '@/components/ui/TVL';
-import Rates from '@/components/ui/Rates';
-import { Subscribe } from '@/components/ui/Subscribe';
+import { Hero } from '@/components/sections/Hero';
+// import { ProjectSlider, ProjectLogo } from '@/components/sections/ProjectSlider';
+import { TVL } from '@/components/sections/TVL';
+import Rates from '@/components/sections/Rates';
+import { Subscribe } from '@/components/sections/Subscribe';
 
 export default function Home() {
   return (

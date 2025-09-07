@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { NavigationProps, NavigationItem } from '@/shared/types/header';
+import { NavigationProps, NavigationItem } from '@/lib/types/header';
 import styles from './Navigation.module.css';
 
 // Default navigation items - simplified without dropdowns

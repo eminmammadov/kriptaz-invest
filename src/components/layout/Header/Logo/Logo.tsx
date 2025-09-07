@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { LogoProps } from '@/shared/types/header';
+import { LogoProps } from '@/lib/types/header';
 import styles from './Logo.module.css';
 
 /**

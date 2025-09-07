@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { RiTwitterXFill } from "react-icons/ri";
-import { FooterProps, SocialLink } from '@/shared/types/footer';
+import { FooterProps, SocialLink } from '@/lib/types/footer';
 import styles from './Footer.module.css';
 
 // ============================================================================

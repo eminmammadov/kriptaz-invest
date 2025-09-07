@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Logo from './Logo/Logo';
 import Navigation from './Navigation/Navigation';
 import HeaderButtons from './HeaderButtons/HeaderButtons';
-import { HeaderProps, NavigationItem } from '@/shared/types/header';
+import { HeaderProps, NavigationItem } from '@/lib/types/header';
 import styles from './Header.module.css';
 
 // Default navigation items

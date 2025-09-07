@@ -6,4 +6,4 @@ export type {
   FooterProps,
   FooterLink,
   SocialLink
-} from '@/shared/types/footer';
+} from '@/lib/types/footer';

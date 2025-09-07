@@ -11,4 +11,4 @@ export type {
   NavigationProps,
   HeaderButtonsProps,
   NavigationItem
-} from '@/shared/types/header';
+} from '@/lib/types/header';

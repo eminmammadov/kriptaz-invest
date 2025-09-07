@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { HeaderButtonsProps } from '@/shared/types/header';
+import { HeaderButtonsProps } from '@/lib/types/header';
 import styles from './HeaderButtons.module.css';
 
 /**

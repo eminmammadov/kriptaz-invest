@@ -3,10 +3,10 @@
 import React, { useEffect } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Cookies } from '@/components/ui/Cookies';
+import { Cookies } from '@/components/common/Cookies';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
-import { FooterLink, SocialLink } from '@/shared/types/footer';
-import { useGlobalStore, useCookies } from '@/shared/store/useGlobalStore';
+import { FooterLink, SocialLink } from '@/lib/types/footer';
+import { useGlobalStore, useCookies } from '@/lib/store/useGlobalStore';
 
 interface ClientLayoutProps {
   children: React.ReactNode;
