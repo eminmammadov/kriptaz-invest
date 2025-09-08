@@ -12,14 +12,14 @@ const playfair = Playfair({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kriptaz Invest - Crypto Investment Fund",
-    template: "%s | Kriptaz Invest"
+    default: "Invest Founders - Crypto Investment Fund",
+    template: "%s | Invest Founders"
   },
   description: "Professional crypto investment fund established by mutual investors. Managed with disciplined strategies and regulatory standards for reliable, transparent investment services.",
   keywords: ["crypto investment", "blockchain fund", "cryptocurrency", "investment platform", "digital assets", "DeFi", "portfolio management"],
   authors: [{ name: "Kriptaz Blockchain" }],
   creator: "Kriptaz Blockchain",
-  publisher: "Kriptaz Invest",
+  publisher: "Invest Founders",
   formatDetection: {
     email: false,
     address: false,
@@ -33,21 +33,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Kriptaz Invest - Crypto Investment Fund',
+    title: 'Invest Founders - Crypto Investment Fund',
     description: 'Professional crypto investment fund established by mutual investors. Managed with disciplined strategies and regulatory standards.',
-    siteName: 'Kriptaz Invest',
+    siteName: 'Invest Founders',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Kriptaz Invest - Crypto Investment Fund',
+        alt: 'Invest Founders - Crypto Investment Fund',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kriptaz Invest - Crypto Investment Fund',
+    title: 'Invest Founders - Crypto Investment Fund',
     description: 'Professional crypto investment fund established by mutual investors.',
     creator: '@KriptazInvest',
     images: ['/images/twitter-image.jpg'],

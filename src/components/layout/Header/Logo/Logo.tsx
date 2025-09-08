@@ -6,7 +6,7 @@ import { LogoProps } from '@/lib/types/header';
 import styles from './Logo.module.css';
 
 /**
- * Logo component for Kriptaz Invest
+ * Logo component for Invest Founders
  * Uses the full logo consistently across all screen sizes
  */
 const Logo: React.FC<LogoProps> = ({
@@ -25,12 +25,12 @@ const Logo: React.FC<LogoProps> = ({
           onClick();
         }
       }}
-      aria-label="Kriptaz Invest - Go to homepage"
+      aria-label="Invest Founders - Go to homepage"
     >
       {/* Full Logo - Used for all screen sizes */}
       <Image
         src="/logos/kriptaz-invest-full-black-logo.svg"
-        alt="Kriptaz Invest"
+        alt="Invest Founders"
         width={200}
         height={40}
         className={styles.logoImage}
