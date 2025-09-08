@@ -11,15 +11,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-
-      {/* <ProjectSlider
-        onLogoClick={handleProjectLogoClick}
-      /> */}
-
       <TVL />
-
       <Rates />
-
       <Subscribe />
     </>
   );
