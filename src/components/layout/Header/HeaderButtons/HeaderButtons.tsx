@@ -34,7 +34,7 @@ const HeaderButtons: React.FC<HeaderButtonsProps> = ({
           className={`${styles.button} ${styles.joinButton}`}
           aria-label="Join our community"
         >
-          JOIN
+          Join
         </button>
       )}
     </div>

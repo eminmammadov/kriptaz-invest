@@ -162,29 +162,17 @@
   border-radius: 6px;
   transition: all 0.3s ease;
   min-width: 90px;
-  border: 1px solid transparent;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-gellix) !important;
 }
 
 .portfolioButton:hover {
-  background-color: #f8f8f8;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.portfolioButton:active {
-  transform: translateY(0);
-}
-
-.portfolioButton:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+  background-color: #e7e7e7;
 }
 
 /* Read More Link */
 .readMoreLink {
   color: white;
-  font-family: var(--font-primary);
+  font-family: var(--font-gellix) !important;
   font-size: 0.875rem;
   font-weight: 400;
   text-decoration: underline;

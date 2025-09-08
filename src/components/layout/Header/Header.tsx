@@ -109,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({
               className={styles.mobileJoinButton}
               aria-label="Join our community"
             >
-              JOIN
+              Join
             </button>
 
             {/* Mobile Menu Button - 2-line hamburger with X animation */}
