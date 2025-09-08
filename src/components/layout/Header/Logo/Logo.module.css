@@ -14,7 +14,7 @@
 
 .logoImage {
   object-fit: contain;
-  filter: brightness(0) saturate(100%); /* Makes SVG black */
+  filter: brightness(0) invert(1); /* Makes SVG white */
   height: 2rem; /* Mobile size */
   width: auto;
   transition: height 0.2s ease-in-out;

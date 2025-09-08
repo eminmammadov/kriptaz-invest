@@ -24,6 +24,7 @@
 .donateButton {
   background-color: var(--color-primary-black);
   color: var(--color-white);
+  display: none; /* Hide Portfolio button on desktop */
 }
 
 .donateButton:hover {
@@ -31,13 +32,13 @@
 }
 
 .joinButton {
-  background-color: var(--color-accent-green);
+  background-color: white;
   color: var(--color-primary-black);
 }
 
 .joinButton:hover {
-  background-color: var(--color-primary-black); /* Slightly darker green */
-  color: var(--color-accent-green);
+  background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
+  color: var(--color-primary-black);
 }
 
 /* Mobile layout adjustments */

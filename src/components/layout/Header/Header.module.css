@@ -1,12 +1,12 @@
 /* Header Component Styles */
 
 .header {
-  background-color: var(--color-light-gray);
+  background-color: transparent;
   position: fixed; /* Use fixed instead of sticky for better compatibility */
   top: 0;
   left: 0;
   right: 0;
-  z-index: 60;
+  z-index: 100;
   width: 100vw;
   /* Ensure header stays on top */
   will-change: transform;
@@ -55,7 +55,7 @@
 /* Mobile Join Button - Visible only on mobile screens */
 .mobileJoinButton {
   display: block;
-  background-color: var(--color-accent-green);
+  background-color: white;
   color: var(--color-primary-black);
   border: none;
   border-radius: 0.375rem;
@@ -70,8 +70,8 @@
 }
 
 .mobileJoinButton:hover {
-  background-color: var(--color-primary-black);
-  color: var(--color-accent-green);
+  background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
+  color: var(--color-primary-black);
 }
 
 @media (min-width: 768px) {
@@ -96,7 +96,7 @@
 .mobileMenuButton {
   display: block;
   padding: 0.5rem;
-  color: var(--color-gray-700);
+  color: white;
   background: none;
   border: none;
   cursor: pointer;
@@ -110,7 +110,7 @@
 }
 
 .mobileMenuButton:hover {
-  color: var(--color-gray-900);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .mobileMenuButton:focus {
@@ -166,8 +166,9 @@
   max-height: calc(100vh - 4rem); /* Prevent overflow */
   background: #E7E7E7;
   background: linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(255, 255, 255, 1) 50%);
-  transform: translateY(-100vh); /* Move completely above viewport - use full viewport height */
-  transition: transform 1s ease-in-out, visibility 0s linear 1s; /* Add visibility delay */
+  transform: translateY(-20px) scale(0.95); /* Creative transform - slight upward + scale down */
+  opacity: 0; /* Start invisible */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth cubic-bezier for natural feel */
   z-index: 50;
   overflow-y: auto; /* Allow scrolling if content is too tall */
   overflow-x: hidden; /* Prevent horizontal scroll */
@@ -176,9 +177,10 @@
 }
 
 .mobileMenuOpen {
-  transform: translateY(0); /* Slide down to visible position */
+  transform: translateY(0) scale(1); /* Reset to normal position and scale */
+  opacity: 1; /* Make visible */
   visibility: visible; /* Show when open */
-  transition: transform 1s ease-in-out; /* Remove visibility delay when opening */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth opening transition */
 }
 
 @media (min-width: 768px) {

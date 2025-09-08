@@ -27,7 +27,7 @@
 
 /* Desktop navigation button styles */
 .navigationButton {
-  color: var(--color-gray-700);
+  color: white;
   background: none;
   border: none;
   font-weight: 900; /* Updated to use Gellix SemiBold for better visibility */
@@ -48,25 +48,7 @@
   }
 }
 
-/* Desktop hover underline animation - only for desktop navigation */
-@media (min-width: 768px) {
-  .navigation .navigationButton::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; /* Move below the button */
-    left: 0;
-    width: 100%;
-    height: 3px; /* Make it thicker for testing */
-    background-color: var(--color-primary-black); /* Bright green for visibility */
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease-in-out; /* Slower for testing */
-  }
-
-  .navigation .navigationButton:hover::after {
-    transform: scaleX(1);
-  }
-}
+/* Desktop hover underline animation - removed as requested */
 
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
@@ -103,31 +85,26 @@
 
 /* Active state styles for desktop navigation */
 @media (min-width: 768px) {
-  /* Show black underline for active links */
-  .navigation .navigationButton.active::after {
-    background-color: var(--color-primary-black) !important;
-    transform: scaleX(1) !important;
-    opacity: 1 !important;
+  /* Active links have glass effect background */
+  .navigation .navigationButton.active {
+    background-color: rgba(255, 255, 255, 0.1); /* Glass effect */
+    backdrop-filter: blur(10px);
   }
 }
 
 /* Desktop hover and focus states */
 @media (min-width: 768px) {
   .navigation .navigationButton:hover {
-    color: var(--color-gray-900);
-    background-color: var(--color-light-gray);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1); /* Glass effect */
+    backdrop-filter: blur(10px);
   }
 
   /* Keep active link underline on hover */
   .navigation .navigationButton.active:hover {
-    color: var(--color-gray-900);
-    background-color: var(--color-light-gray);
-  }
-
-  .navigation .navigationButton.active:hover::after {
-    background-color: var(--color-primary-black) !important;
-    transform: scaleX(1) !important;
-    opacity: 1 !important;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1); /* Glass effect */
+    backdrop-filter: blur(10px);
   }
 }
 
