@@ -26,8 +26,7 @@
 html, body {
   overflow-x: hidden;
   height: 100%;
-  /* Ensure sticky positioning works */
-  position: relative;
+  /* Remove position relative to avoid conflicts with fixed positioning */
 }
 
 :root {

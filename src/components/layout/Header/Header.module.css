@@ -2,15 +2,43 @@
 
 .header {
   background-color: transparent;
-  position: fixed; /* Use fixed instead of sticky for better compatibility */
-  top: 0;
+  position: fixed !important; /* Force fixed positioning */
+  top: 0 !important;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000; /* Higher than Hero's z-index */
   width: 100vw;
   /* Ensure header stays on top */
   will-change: transform;
   backface-visibility: hidden;
+  transition: background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out;
+}
+
+/* Dynamic background when scrolled */
+.headerScrolled {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll state styles for elements */
+[data-scrolled="true"] .mobileMenuButton {
+  color: var(--color-primary-black);
+}
+
+[data-scrolled="true"] .mobileMenuButton:hover {
+  color: var(--color-gray-dark);
+}
+
+[data-scrolled="true"] .mobileJoinButton {
+  background-color: var(--color-primary-black);
+  color: white;
+}
+
+[data-scrolled="true"] .mobileJoinButton:hover {
+  background-color: var(--color-gray-dark);
+  color: white;
 }
 
 .container {

@@ -32,12 +32,24 @@
 
 .joinButton {
   background-color: white;
-  color: var(--color-primary-black)
+  color: var(--color-primary-black);
+  transition: all 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .joinButton:hover {
   background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
   color: var(--color-primary-black);
+}
+
+/* Scroll state - make join button black */
+[data-scrolled="true"] .joinButton {
+  background-color: var(--color-primary-black);
+  color: white;
+}
+
+[data-scrolled="true"] .joinButton:hover {
+  background-color: var(--color-gray-dark);
+  color: white;
 }
 
 /* Mobile layout adjustments */
