@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import Logo from './Logo/Logo';
 import Navigation from './Navigation/Navigation';
 import { Button } from '@/components/ui/Button';
@@ -27,7 +27,14 @@ const Header: React.FC<HeaderProps> = ({
   onLogoClick
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(true);
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Check if current page is home page
+  useEffect(() => {
+    setIsHomePage(pathname === '/');
+  }, [pathname]);
 
   const handleNavigationItemClick = (item: NavigationItem) => {
     if (item.href) {
@@ -66,7 +73,8 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={`${styles.header} ${className}`}
+      className={`${styles.header} ${!isHomePage ? styles.headerWithBackground : ''} ${className}`}
+      style={!isHomePage ? { backgroundColor: '#eeeeee' } : {}}
     >
       <div className={styles.container}>
         <div className={styles.headerContent}>
@@ -74,6 +82,7 @@ const Header: React.FC<HeaderProps> = ({
           <Logo
             onClick={handleLogoClick}
             className={styles.logoContainer}
+            variant={isHomePage ? "primary" : "secondary"}
           />
 
           {/* Desktop Navigation */}
@@ -81,13 +90,14 @@ const Header: React.FC<HeaderProps> = ({
             items={navigationItems}
             onItemClick={handleNavigationItemClick}
             className={styles.navigationContainer}
+            variant={isHomePage ? "primary" : "secondary"}
           />
 
           {/* Desktop Header Buttons */}
           <div className={styles.buttonsContainer}>
             <Button
               onClick={handleJoinClick}
-              variant="primary"
+              variant={isHomePage ? "primary" : "secondary"}
               size="medium"
               className={styles.desktopJoinButton}
             >
@@ -100,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({
             {/* Mobile Join Button - Visible only on mobile */}
             <Button
               onClick={handleJoinClick}
-              variant="primary"
+              variant={isHomePage ? "primary" : "secondary"}
               size="medium"
               className={styles.mobileJoinButton}
             >
@@ -131,6 +141,7 @@ const Header: React.FC<HeaderProps> = ({
                   items={navigationItems}
                   onItemClick={handleNavigationItemClick}
                   className="mobileNavigation"
+                  variant={isHomePage ? "primary" : "secondary"}
                 />
               </div>
             </nav>

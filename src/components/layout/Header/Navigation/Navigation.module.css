@@ -25,6 +25,21 @@
   font-family: var(--font-gellix) !important;
 }
 
+/* Secondary variant for non-home pages - only affects desktop navigation */
+.secondary:not(.mobileNavigation) .navigationButton {
+  color: var(--color-primary-black) !important;
+}
+
+.secondary:not(.mobileNavigation) .navigationButton:hover {
+  color: var(--color-gray-700) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.secondary:not(.mobileNavigation) .navigationButton.active {
+  color: var(--color-primary-black) !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
 /* Desktop navigation button styles */
 .navigationButton {
   color: var(--color-white);
@@ -110,19 +125,12 @@
 
 /* Active state styles for mobile navigation */
 .mobileNavigation .navigationButton.active {
-  /* Keep normal text color, add underline */
+  color: var(--color-gold) !important;
   position: relative;
 }
 
 .mobileNavigation .navigationButton.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--color-primary-black) !important;
-  opacity: 1 !important;
+  display: none; /* Remove underline */
 }
 
 /* Mobile navigation hover and focus states */
@@ -130,14 +138,13 @@
   color: var(--color-gray-700);
 }
 
-/* Keep active link underline on hover in mobile */
+/* Keep active link gold color on hover in mobile */
 .mobileNavigation .navigationButton.active:hover {
-  color: var(--color-gray-700);
+  color: var(--color-gold) !important;
 }
 
 .mobileNavigation .navigationButton.active:hover::after {
-  background-color: var(--color-primary-black) !important;
-  opacity: 1 !important;
+  display: none; /* Remove underline on hover */
 }
 
 

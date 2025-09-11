@@ -32,7 +32,8 @@ const defaultNavigationItems: NavigationItem[] = [
 const Navigation: React.FC<NavigationProps> = ({
   items = defaultNavigationItems,
   className = '',
-  onItemClick
+  onItemClick,
+  variant = 'primary'
 }) => {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
@@ -52,10 +53,11 @@ const Navigation: React.FC<NavigationProps> = ({
 
   const isMobileNavigation = className?.includes('mobileNavigation');
   const navClassName = isMobileNavigation ? styles.mobileNavigation : styles.navigation;
+  const variantClassName = variant === 'secondary' ? styles.secondary : '';
 
   return (
     <nav
-      className={`${navClassName} ${className || ''}`}
+      className={`${navClassName} ${variantClassName} ${className || ''}`}
       role="navigation"
       aria-label="Main navigation"
     >

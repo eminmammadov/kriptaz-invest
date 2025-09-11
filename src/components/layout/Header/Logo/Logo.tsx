@@ -11,7 +11,8 @@ import styles from './Logo.module.css';
  */
 const Logo: React.FC<LogoProps> = ({
   className = '',
-  onClick
+  onClick,
+  variant = 'primary'
 }) => {
   return (
     <div
@@ -29,7 +30,7 @@ const Logo: React.FC<LogoProps> = ({
     >
       {/* Full Logo - Used for all screen sizes */}
       <Image
-        src="/logos/kriptaz-invest-full-black-logo.svg"
+        src={variant === 'primary' ? "/logos/kriptaz-invest-full-white-logo.svg" : "/logos/kriptaz-invest-full-black-logo.svg"}
         alt="Invest Founders"
         width={200}
         height={40}

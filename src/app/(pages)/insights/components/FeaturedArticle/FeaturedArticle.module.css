@@ -55,31 +55,7 @@
 }
 
 .readMoreButton {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #111827;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  font-family: var(--font-gellix) !important;
-  width: fit-content;
-}
-
-.readMoreButton:hover {
-  background-color: #374151;
-  transform: translateY(-1px);
-}
-
-.readMoreButton:active {
-  transform: translateY(0);
-}
-
-.readMoreButton:focus {
-  outline: 2px solid #111827;
-  outline-offset: 2px;
+  max-width: 100px;
 }
 
 @media (max-width: 768px) {

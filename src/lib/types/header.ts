@@ -10,12 +10,14 @@ export interface NavigationItem {
 export interface LogoProps {
   className?: string;
   onClick?: () => void;
+  variant?: 'primary' | 'secondary';
 }
 
 export interface NavigationProps {
   items?: NavigationItem[];
   className?: string;
   onItemClick?: (item: NavigationItem) => void;
+  variant?: 'primary' | 'secondary';
 }
 
 export interface HeaderButtonsProps {

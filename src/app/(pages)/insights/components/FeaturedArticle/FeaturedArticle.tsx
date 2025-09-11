@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Article } from '@/lib/articles/articles';
+import { Button } from '@/components/ui/Button';
 import styles from './FeaturedArticle.module.css';
 
 interface FeaturedArticleProps {
@@ -20,9 +20,14 @@ export default function FeaturedArticle({ article }: FeaturedArticleProps) {
         <p className={styles.description}>
           {article.description}
         </p>
-        <Link href={`/insights/${article.slug}`} className={styles.readMoreButton}>
+        <Button
+          href={`/insights/${article.slug}`}
+          variant="secondary"
+          size="medium"
+          className={styles.readMoreButton}
+        >
           Read More
-        </Link>
+        </Button>
       </div>
       <div className={styles.imageContainer}>
         <Image

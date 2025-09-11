@@ -13,6 +13,11 @@
   backface-visibility: hidden;
 }
 
+/* Header with background for non-home pages */
+.headerWithBackground {
+  background-color: var(--color-light-gray);
+}
+
 .container {
   width: 100%;
   padding-left: 1rem;
@@ -52,13 +57,6 @@
   }
 }
 
-/* Desktop Join Button */
-.desktopJoinButton {
-  /* Styles handled by UI Button component */
-}
-
-/* Mobile Menu Join Button - Removed as not needed */
-
 /* Mobile Join Button - Visible only on mobile screens */
 .mobileJoinButton {
   display: block;
@@ -93,6 +91,15 @@
   border: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
+}
+
+/* Secondary variant for non-home pages */
+.headerWithBackground .mobileMenuButton {
+  color: var(--color-primary-black);
+}
+
+.headerWithBackground .mobileMenuButton:hover {
+  color: var(--color-gray-700);
 }
 
 @media (min-width: 768px) {

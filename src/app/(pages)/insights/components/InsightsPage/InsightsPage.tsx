@@ -1,6 +1,8 @@
 import { getAllArticles, getCategoryCounts, getAvailableCategories } from '@/lib/articles/articles';
 import FeaturedArticle from '../FeaturedArticle';
 import { InsightsCard } from '@/components/ui/InsightsCard';
+import PageHeader from '@/components/ui/PageHeader';
+import CategoryNavigation from '../CategoryNavigation/CategoryNavigation';
 import styles from './InsightsPage.module.css';
 
 export default async function InsightsPage() {
@@ -12,9 +14,7 @@ export default async function InsightsPage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Explore Insights</h1>
-      </div>
+      <PageHeader title="Explore Insights" />
 
       {featuredArticle && (
         <div className={styles.featuredSection}>
@@ -23,17 +23,11 @@ export default async function InsightsPage() {
       )}
 
       <div className={styles.contentSection}>
-        <nav className={styles.categoryNavigation}>
-          {availableCategories.map((category, index) => (
-            <a 
-              key={category} 
-              href="#" 
-              className={`${styles.categoryLink} ${index === 0 ? styles.active : ''}`}
-            >
-              {category} <span className={styles.categoryCount}>{categoryCounts[category] || 0}</span>
-            </a>
-          ))}
-        </nav>
+        <CategoryNavigation
+          categories={availableCategories}
+          categoryCounts={categoryCounts}
+          activeCategory="All Insights"
+        />
 
         <div className={styles.articlesGrid}>
           {articlesList.map((article) => (

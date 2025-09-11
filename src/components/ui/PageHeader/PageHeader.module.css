@@ -1,0 +1,36 @@
+.header {
+  padding: 6rem 0;
+  text-align: center;
+  margin-top: 4rem; /* Header height compensation */
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-primary-black);
+  margin-bottom: 2rem;
+  font-family: var(--font-gellix) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 4rem 0;
+    } 
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .header {
+        padding: 2rem 0;
+    } 
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 0rem;
+    }
+  }
