@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { CookiesProps, CookiesBannerState } from '@/lib/types/cookies';
+import { Button } from '@/components/ui/Button';
 import styles from './Cookies.module.css';
 
 // Default message matching the image content
@@ -118,14 +119,14 @@ const Cookies: React.FC<CookiesProps> = ({
         </p>
         
         <div className={styles.cookiesActions}>
-          <button
+          <Button
             onClick={handleAccept}
-            className={styles.acceptButton}
+            variant="secondary"
+            size="small"
             aria-label={`Accept cookies and close banner - ${buttonText}`}
-            type="button"
           >
             {buttonText}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
