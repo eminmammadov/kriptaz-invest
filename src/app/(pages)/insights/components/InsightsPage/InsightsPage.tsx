@@ -3,6 +3,7 @@ import FeaturedArticle from '../FeaturedArticle';
 import { InsightsCard } from '@/components/ui/InsightsCard';
 import PageHeader from '@/components/ui/PageHeader';
 import CategoryNavigation from '../CategoryNavigation/CategoryNavigation';
+import { Button } from '@/components/ui/Button';
 import styles from './InsightsPage.module.css';
 
 export default async function InsightsPage() {
@@ -42,9 +43,13 @@ export default async function InsightsPage() {
       </div>
 
       <div className={styles.loadMoreButton}>
-        <button className={styles.loadMoreBtn}>
+        <Button
+          variant="secondary"
+          size="medium"
+          className={styles.loadMoreBtn}
+        >
           Load More Articles
-        </button>
+        </Button>
       </div>
     </div>
   );
