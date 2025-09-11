@@ -22,7 +22,7 @@ interface AssetsProps {
 
 // Centralized text content
 const ASSETS_TEXT = {
-  title: 'We generate returns with the Assets we list.',
+  title: 'We generate returns with the Assets we list',
   description: 'Our investment approach focuses on carefully selected listed assets, enabling us to deliver steady returns while ensuring growth and stability.',
   button: 'Visit Portfolio'
 } as const;
