@@ -1,7 +1,7 @@
 
 import { Hero } from '@/components/sections/Hero';
 // import { ProjectSlider, ProjectLogo } from '@/components/sections/ProjectSlider';
-import { TVL } from '@/components/sections/TVL';
+import { Statistics } from '@/components/sections/Statistics';
 import Rates from '@/components/sections/Rates';
 import Insights from '@/components/sections/Insights';
 import { Subscribe } from '@/components/sections/Subscribe';
@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <TVL />
+      <Statistics />
       <Rates />
       <Insights articles={articles} />
       <Subscribe />

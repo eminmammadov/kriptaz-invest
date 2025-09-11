@@ -1,0 +1,95 @@
+/* ClientsLogo UI Component Styles */
+/* Partner/Client logos infinite scrolling slider */
+
+.clientsLogoContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.clientsLogoWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Logos Slider - Sonsuz döngü için düzeltildi */
+.logosSlider {
+  display: flex;
+  animation: scrollLogos 45s linear infinite;
+  width: max-content;
+}
+
+.logosSlider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-75%);
+  }
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
+  flex-shrink: 0;
+}
+
+.clientLogo {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.clientLogo:hover {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .logoItem {
+    margin: 0 1rem;
+  }
+
+  .clientLogo {
+    width: 60px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+  .logoItem {
+    margin: 0 0.75rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 395px) {
+  .logoItem {
+    margin: 0 0.5rem;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .logosSlider {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+.logoItem:focus {
+  outline: 2px solid var(--color-accent-green);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .clientLogo {
+    filter: brightness(0) invert(1) contrast(2);
+  }
+}

@@ -36,7 +36,6 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  display: block;
 }
 
 .videoBackground {
@@ -50,8 +49,6 @@
   z-index: 1;
   background-color: var(--color-primary-black);
 }
-
-
 
 /* Video Error Fallback */
 .videoErrorFallback {
@@ -91,7 +88,6 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 1rem;
-  padding-top: calc(2rem + 4rem); /* Add header height */
 }
 
 .contentWrapper {
@@ -111,34 +107,12 @@
   text-align: left;
 }
 
-/* Title Styles - Sol tarafa hizalı */
-.heroTitle {
-  font-family: var(--font-header) !important;
-  font-size: 5.5rem;
-  font-weight: 600;
-  line-height: 0.9;
-  color: white;
-  margin: 2.5rem 0;
-  letter-spacing: -0.02em;
-  text-align: left;
-  max-width: 650px;
-}
 
 /* Description Styles */
 .descriptionContainer {
   margin-bottom: 3rem;
 }
 
-.descriptionText {
-  max-width: 500px;
-  font-family: var(--font-primary);
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: white;
-  margin: 0;
-  text-align: left;
-}
 
 /* Button Container */
 .buttonContainer {
@@ -149,26 +123,6 @@
   margin-bottom: 2rem;
 }
 
-/* Portfolio Button - Daha ince ve küçük */
-.portfolioButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  background-color: white;
-  color: #1a1a1a;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  min-width: 90px;
-  font-family: var(--font-gellix) !important;
-}
-
-.portfolioButton:hover {
-  background-color: #e7e7e7;
-}
 
 /* Read More Link */
 .readMoreLink {
@@ -188,54 +142,6 @@
   opacity: 0.8;
 }
 
-/* Partner Logos Container */
-.partnerLogosContainer {
-  width: 100%;
-  overflow: hidden;
-}
-
-.partnerLogosWrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Logos Slider - Sonsuz döngü için düzeltildi */
-.logosSlider {
-  display: flex;
-  animation: scrollLogos 45s linear infinite;
-  width: max-content;
-}
-
-.logosSlider:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollLogos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-75%);
-  }
-}
-
-.logoItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 1.5rem;
-  flex-shrink: 0;
-}
-
-.partnerLogo {
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.partnerLogo:hover {
-  opacity: 1;
-}
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -244,9 +150,6 @@
     min-height: 500px;
   }
 
-  .heroTitle {
-    font-size: 2.5rem;
-  }
 }
 
 @media (max-width: 992px) {
@@ -255,9 +158,6 @@
     min-height: 450px;
   }
 
-  .heroTitle {
-    font-size: 2.25rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -274,23 +174,12 @@
     text-align: center;
   }
 
-  .heroTitle {
-    font-size: 2rem;
-    margin: 2rem auto;
-    max-width: 300px;
-    text-align: center;
-  }
 
   .descriptionContainer {
     justify-content: center !important;
     display: flex !important;
   }
 
-  .descriptionText {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
 
   .buttonContainer {
     margin-bottom: 1.5rem;
@@ -299,20 +188,7 @@
     gap: 0.75rem;
   }
 
-  .portfolioButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    min-width: 90px;
-  }
 
-  .logoItem {
-    margin: 0 1rem;
-  }
-
-  .partnerLogo {
-    width: 60px;
-    height: 30px;
-  }
 
 }
 
@@ -322,18 +198,7 @@
     min-height: 350px;
   }
 
-  .heroTitle {
-    font-size: 1.75rem;
-    margin: 1.5rem auto;
-    max-width: 280px;
-    text-align: center;
-  }
 
-  .descriptionText {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
 
   .buttonContainer {
     margin-bottom: 1rem;
@@ -342,19 +207,11 @@
     gap: 0.75rem;
   }
 
-  .portfolioButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    min-width: 90px;
-  }
 
   .contentContainer {
     padding: 1rem 0.75rem;
   }
 
-  .logoItem {
-    margin: 0 0.75rem;
-  }
 
 }
 
@@ -365,18 +222,7 @@
     min-height: 300px;
   }
 
-  .heroTitle {
-    font-size: 1.75rem;
-    margin: 1rem auto;
-    max-width: 250px;
-    text-align: center;
-  }
 
-  .descriptionText {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
 
   .buttonContainer {
     margin-bottom: 0.75rem;
@@ -385,35 +231,17 @@
     gap: 0.5rem;
   }
 
-  .portfolioButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    min-width: 90px;
-  }
 
   .contentContainer {
     padding: 0.75rem 0.5rem;
   }
 
-  .logoItem {
-    margin: 0 0.5rem;
-  }
 
 }
 
 /* Accessibility - Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  .logosSlider {
-    animation: none;
-  }
 
-  .portfolioButton {
-    transition: none;
-  }
-
-  .portfolioButton:hover {
-    transform: none;
-  }
 
   .videoBackground {
     animation: none;
@@ -443,11 +271,5 @@
     background: rgba(0, 0, 0, 0.8);
   }
 
-  .descriptionText {
-    color: white;
-  }
 
-  .portfolioButton {
-    border-color: #000000;
-  }
 }

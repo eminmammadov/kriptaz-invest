@@ -1,6 +1,6 @@
-/* TVL Component Styles */
+/* Statistics Component Styles */
 
-.tvlContainer {
+.statisticsContainer {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 6rem 0;
@@ -15,34 +15,13 @@
   padding-right: 1rem;
 }
 
-.tvlContent {
+.statisticsContent {
   max-width: 1600px;
   margin: 0 auto;
 }
 
-.tvlHeader {
+.statisticsHeader {
   margin-bottom: 4rem;
-  text-align: left;
-}
-
-.tvlTitle {
-  font-family: var(--font-header) !important;
-  font-size: 2.75rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-primary-black) !important;
-  margin: 0;
-  letter-spacing: -0.02em;
-  max-width: 700px;
-}
-
-.tvlSubtitle {
-  font-family: var(--font-primary);
-  font-size: 1.125rem;
-  color: #666666;
-  margin: 1.5rem 0 0 0;
-  line-height: 1.5;
-  max-width: 600px;
 }
 
 .metricsGrid {
@@ -85,10 +64,10 @@
 
 .metricLabel {
   font-family: var(--font-primary);
-  font-size: 1rem;
-  color: var(--color-primary-black) !important;
-  font-weight: 500;
+  font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.3;
+  color: var(--color-primary-black) !important;
   margin: 0;
   text-align: left;
 }
@@ -99,9 +78,9 @@
   justify-content: center;
   background-color: var(--color-accent-green);
   color: var(--color-primary-black);
-  font-family: var(--font-header);
+  font-family: var(--font-gellix) !important;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   margin-left: 0.5rem;
@@ -133,10 +112,6 @@
 }
 
 @media (max-width: 768px) {
-  .tvlContainer {
-    padding: 3rem 0;
-  }
-
   .metricsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 2rem;
@@ -147,12 +122,8 @@
     font-size: 3rem;
   }
 
-  .tvlTitle {
-    font-size: 2rem;
-    max-width: 100%;
-  }
 
-  .tvlHeader {
+  .statisticsHeader {
     margin-bottom: 3rem;
   }
 
@@ -168,10 +139,6 @@
 }
 
 @media (max-width: 480px) {
-  .tvlContainer {
-    padding: 3rem 0;
-  }
-
   .metricsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem 1rem;
@@ -187,11 +154,8 @@
     font-size: 2.5rem;
   }
 
-  .tvlTitle {
-    font-size: 1.75rem;
-  }
 
-  .tvlHeader {
+  .statisticsHeader {
     text-align: center;
     margin-bottom: 2rem;
   }
@@ -213,36 +177,5 @@
     animation: none;
     opacity: 1;
     transform: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .tvlContainer {
-    border: 2px solid var(--color-primary-black);
-  }
-
-  .metricBadge {
-    border: 1px solid var(--color-primary-black);
-  }
-}
-
-/* Focus styles for keyboard navigation */
-.metricItem:focus {
-  outline: 2px solid var(--color-accent-green);
-  outline-offset: 2px;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .tvlContainer {
-    background-color: var(--color-primary-black);
-  }
-
-  .tvlTitle,
-  .metricValue,
-  .metricLabel,
-  .metricSuperscript {
-    color: var(--color-light-gray);
   }
 }

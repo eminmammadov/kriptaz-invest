@@ -109,7 +109,7 @@
 .jobTitle {
   font-family: var(--font-header);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-primary-black);
   margin: 0 0 0.5rem 0;
   line-height: 1.3;

@@ -10,11 +10,5 @@ export interface StatisticsMetric {
 export interface StatisticsProps {
   className?: string;
   title?: string;
-  subtitle?: string;
   metrics?: StatisticsMetric[];
-}
-
-export interface StatisticsState {
-  isVisible: boolean;
-  animationDelay: number;
 }

@@ -1,4 +1,4 @@
-# Kriptaz Invest
+# Invest Founders
 
 Professional crypto investment fund platform established by mutual investors. Built with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
 

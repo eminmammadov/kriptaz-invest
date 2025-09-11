@@ -1,0 +1,43 @@
+/* Titles UI Component Styles */
+/* Section title component with consistent styling */
+
+.title {
+  font-family: var(--font-gellix) !important;
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-primary-black);
+  margin: 0;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+}
+
+/* Variants */
+.dark {
+  color: var(--color-primary-black);
+}
+
+.light {
+  color: var(--color-white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 580px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 395px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}

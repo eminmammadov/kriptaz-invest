@@ -5,13 +5,13 @@
 
 @media (min-width: 640px) {
   .container {
-    padding: 1rem;
+    padding: 0rem 1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding: 1rem;
+    padding: 0rem 1rem;
   }
 }
 
@@ -159,6 +159,6 @@
   }
   
   .container {
-    padding: 1rem 0.5rem;
+    padding: 0rem 1rem;
   }
 }

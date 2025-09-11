@@ -1,0 +1,88 @@
+/* Button UI Component Styles */
+/* Based on Hero Portfolio button design */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-gellix) !important;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-white);
+  color: var(--color-primary-black);
+}
+
+.primary:hover {
+  background-color: var(--color-gold);
+}
+
+.secondary {
+  background-color: var(--color-primary-black);
+  color: var(--color-white);
+}
+
+.secondary:hover {
+  background-color: var(--color-accent-green);
+  color: var(--color-primary-black);
+}
+
+
+/* Sizes */
+.small {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  min-width: 70px;
+}
+
+.medium {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  min-width: 90px;
+}
+
+/* Disabled state */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Focus states for accessibility */
+.button:focus {
+  outline: 2px solid var(--color-accent-green);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+  
+  .button:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .primary {
+    border: 1px solid var(--color-primary-black);
+  }
+}

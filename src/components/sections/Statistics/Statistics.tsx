@@ -1,21 +1,22 @@
 'use client';
 
 import React from 'react';
-import { TVLProps, TVLMetric } from '@/lib/types/tvl';
-import styles from './TVL.module.css';
+import { StatisticsProps, StatisticsMetric } from '@/lib/types/statistics';
+import { Titles } from '@/components/ui/Titles';
+import styles from './Statistics.module.css';
 
 // Default metrics based on the image
-const defaultMetrics: TVLMetric[] = [
+const defaultMetrics: StatisticsMetric[] = [
   {
     value: '9',
     label: 'Friend Members'
   },
   {
-    value: '8',
+    value: '11',
     label: 'Investment Projects'
   },
   {
-    value: '4.35%',
+    value: '4.29%',
     label: 'Investor Rate',
     superscript: '+'
   },
@@ -27,35 +28,25 @@ const defaultMetrics: TVLMetric[] = [
 ];
 
 /**
- * TVL component displaying key metrics and statistics
+ * Statistics component displaying key metrics and statistics
  * Features elegant typography and smooth animations
  */
-const TVL: React.FC<TVLProps> = ({
+const Statistics: React.FC<StatisticsProps> = ({
   className = '',
   title = 'Invest Founders fund was established with Close Friends',
-  subtitle,
   metrics = defaultMetrics
 }) => {
-
-
   return (
     <section
-      className={`${styles.tvlContainer} ${className}`}
+      className={`${styles.statisticsContainer} ${className}`}
       role="region"
-      aria-label="Total Value Locked metrics and statistics"
+      aria-label="Statistics and metrics"
     >
       <div className={styles.container}>
-        <div className={styles.tvlContent}>
+        <div className={styles.statisticsContent}>
         {/* Header Section */}
-        <div className={styles.tvlHeader}>
-          <h2 className={styles.tvlTitle}>
-            {title}
-          </h2>
-          {subtitle && (
-            <p className={styles.tvlSubtitle}>
-              {subtitle}
-            </p>
-          )}
+        <div className={styles.statisticsHeader}>
+          <Titles variant="dark">{title}</Titles>
         </div>
 
         {/* Metrics Grid */}
@@ -98,4 +89,4 @@ const TVL: React.FC<TVLProps> = ({
   );
 };
 
-export default TVL;
+export default Statistics;

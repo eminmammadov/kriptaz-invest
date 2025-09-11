@@ -36,8 +36,7 @@ const Insights: React.FC<InsightsProps> = ({
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Resources</h2>
-          <p className={styles.subtitle}>See the Latest from Kriptaz</p>
+          <h2 className={styles.title}>Resources See the Latest from Invest Founders</h2>
         </div>
 
         {/* Articles Grid */}

@@ -33,18 +33,13 @@
   font-weight: 900; /* Updated to use Gellix SemiBold for better visibility */
   font-size: 0.85rem; /* Increased from 0.8125rem for better readability */
   letter-spacing: 0.02em;
-  transition: all 0.2s ease-in-out, color 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   font-family: var(--font-header) !important;
   padding: 0.5rem 1rem; /* Increased padding for better click targets */
   white-space: nowrap;
   border-radius: 0.25rem;
   position: relative; /* Required for ::after pseudo-element positioning */
-}
-
-/* Scroll state - make navigation links black */
-[data-scrolled="true"] .navigationButton {
-  color: var(--color-primary-black);
 }
 
 @media (max-width: 900px) {
@@ -66,7 +61,7 @@
 .mobileNavigation .navigationButton {
   color: var(--color-primary-black); /* Updated for white background */
   font-size: 1.125rem; /* Larger for better touch targets */
-  font-weight: 600; /* Updated to use SemiBold for better visibility */
+  font-weight: 400; /* Updated to use SemiBold for better visibility */
   padding: 0.7rem 0rem; /* Reduced by 30% (from 1rem to 0.7rem) */
   width: 100%;
   text-align: left; /* Left-aligned for better readability */
@@ -110,17 +105,6 @@
     color: white;
     background-color: rgba(255, 255, 255, 0.1); /* Glass effect */
     backdrop-filter: blur(10px);
-  }
-
-  /* Scroll state hover effects */
-  [data-scrolled="true"] .navigation .navigationButton:hover {
-    color: var(--color-primary-black);
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  [data-scrolled="true"] .navigation .navigationButton.active:hover {
-    color: var(--color-primary-black);
-    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 

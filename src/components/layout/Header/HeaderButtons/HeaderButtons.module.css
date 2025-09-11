@@ -8,7 +8,7 @@
 
 .button {
   padding: 0.5rem 1.5rem;
-  font-weight: 600; /* Updated to use Gellix SemiBold */
+  font-weight: 400; /* Updated to use Gellix SemiBold */
   font-size: 0.875rem;
   letter-spacing: 0.025em;
   transition: all 0.2s ease-in-out;
@@ -32,24 +32,12 @@
 
 .joinButton {
   background-color: white;
-  color: var(--color-primary-black);
-  transition: all 0.2s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: var(--color-primary-black)
 }
 
 .joinButton:hover {
   background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
   color: var(--color-primary-black);
-}
-
-/* Scroll state - make join button black */
-[data-scrolled="true"] .joinButton {
-  background-color: var(--color-primary-black);
-  color: white;
-}
-
-[data-scrolled="true"] .joinButton:hover {
-  background-color: var(--color-gray-dark);
-  color: white;
 }
 
 /* Mobile layout adjustments */

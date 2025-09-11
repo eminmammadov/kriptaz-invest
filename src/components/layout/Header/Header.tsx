@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Logo from './Logo/Logo';
 import Navigation from './Navigation/Navigation';
@@ -28,31 +28,7 @@ const Header: React.FC<HeaderProps> = ({
   onLogoClick
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
-  // Handle scroll detection for dynamic background
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      const scrolled = scrollTop > 20; // Lower threshold for better detection
-      console.log('Scroll detected:', scrollTop, 'Scrolled:', scrolled);
-      setIsScrolled(scrolled);
-    };
-
-    // Multiple event listeners for better compatibility
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Test initial scroll position
-    handleScroll();
-    
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const handleNavigationItemClick = (item: NavigationItem) => {
     if (item.href) {
@@ -99,18 +75,9 @@ const Header: React.FC<HeaderProps> = ({
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  console.log('Header render - isScrolled:', isScrolled);
-  
   return (
     <header
-      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${className}`}
-      data-scrolled={isScrolled}
-      style={{ 
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.6)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
-        transition: 'background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out'
-      }}
+      className={`${styles.header} ${className}`}
     >
       <div className={styles.container}>
         <div className={styles.headerContent}>
