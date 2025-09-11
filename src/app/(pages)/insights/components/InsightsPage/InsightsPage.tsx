@@ -1,6 +1,6 @@
 import { getAllArticles, getCategoryCounts, getAvailableCategories } from '@/lib/articles/articles';
 import FeaturedArticle from '../FeaturedArticle';
-import ArticleCard from '../ArticleCard';
+import { InsightsCard } from '@/components/ui/InsightsCard';
 import styles from './InsightsPage.module.css';
 
 export default async function InsightsPage() {
@@ -37,7 +37,12 @@ export default async function InsightsPage() {
 
         <div className={styles.articlesGrid}>
           {articlesList.map((article) => (
-            <ArticleCard key={article.id} article={article} />
+            <InsightsCard 
+              key={article.id} 
+              article={article}
+              variant="insights-page"
+              showDescription={false}
+            />
           ))}
         </div>
       </div>

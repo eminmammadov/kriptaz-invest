@@ -2,14 +2,15 @@
 
 import React, { useState } from 'react';
 import { SubscribeProps } from '@/lib/types/subscribe';
+import { Button } from '@/components/ui/Button';
+import { Titles } from '@/components/ui/Titles';
 import styles from './Subscribe.module.css';
 
 const Subscribe: React.FC<SubscribeProps> = ({
   className = '',
-  title = "The Future of Finance",
-  description = "Subscribe for the latest updates, insights, and news.",
+  title = "The Future of Finance Subscribe for the latest updates, insights, and news.",
   placeholder = "Email",
-  buttonText = "Sign Up",
+  buttonText = "Subscribe",
   onSubscribe
 }) => {
   const [email, setEmail] = useState('');
@@ -68,8 +69,9 @@ const Subscribe: React.FC<SubscribeProps> = ({
       
       <div className={styles.content}>
         <div className={styles.textContent}>
-          <h2 className={styles.title}>{title}</h2>
-          <p className={styles.description}>{description}</p>
+          <Titles variant="light" className={styles.title}>
+            {title}
+          </Titles>
         </div>
         
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -83,13 +85,14 @@ const Subscribe: React.FC<SubscribeProps> = ({
               disabled={isLoading}
               required
             />
-            <button
+            <Button
               type="submit"
-              className={styles.submitButton}
+              variant="primary"
+              size="medium"
               disabled={isLoading}
             >
-              {isLoading ? 'Signing Up...' : buttonText}
-            </button>
+              {isLoading ? 'Subscribe...' : buttonText}
+            </Button>
           </div>
           
           {message && (

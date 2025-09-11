@@ -104,27 +104,3 @@
     }
   }
 }
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .cookiesBanner {
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid var(--color-primary-black);
-  }
-  
-  .acceptButton {
-    border: 2px solid var(--color-primary-black);
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .cookiesBanner {
-    background: rgba(17, 17, 17, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .cookiesMessage {
-    color: var(--color-light-gray);
-  }
-}

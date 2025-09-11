@@ -52,26 +52,18 @@
   }
 }
 
+/* Desktop Join Button */
+.desktopJoinButton {
+  /* Styles handled by UI Button component */
+}
+
+/* Mobile Menu Join Button - Removed as not needed */
+
 /* Mobile Join Button - Visible only on mobile screens */
 .mobileJoinButton {
   display: block;
-  background-color: white;
-  color: var(--color-primary-black);
-  border: none;
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-  font-family: var(--font-header);
-  font-weight: 400;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
   flex-shrink: 0;
   margin-right: 0; /* No margin needed - spacing handled by container gap */
-}
-
-.mobileJoinButton:hover {
-  background-color: rgba(255, 255, 255, 0.8); /* Glass effect */
-  color: var(--color-primary-black);
 }
 
 @media (min-width: 768px) {

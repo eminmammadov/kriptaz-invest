@@ -1,0 +1,138 @@
+/* InsightsCard UI Component Styles */
+
+.insightsCard {
+  background-color: transparent;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.insightsCard:hover {
+  transform: translateY(-2px);
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 12rem;
+  background-color: var(--color-light-gray);
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.articleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+
+.metadata {
+  font-size: 0.875rem;
+  color: var(--color-gray-dark);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-gellix) !important;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-primary-black);
+  line-height: 1.25;
+  font-family: var(--font-gellix) !important;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  max-width: 350px;
+}
+
+/* Homepage Variant */
+.homepage .title {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.homepage .description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.4;
+  font-family: var(--font-primary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Insights Page Variant */
+.insights-page .title {
+  font-size: 1.125rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.insights-page .readMore {
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: #2563eb;
+  font-weight: 500;
+  transition: color 0.2s;
+  font-family: var(--font-gellix) !important;
+}
+
+.insights-page .readMore:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 10rem;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .homepage .title {
+    font-size: 1.125rem;
+  }
+  
+  .homepage .description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 8rem;
+  }
+  
+  .title {
+    font-size: 0.95rem;
+  }
+  
+  .homepage .title {
+    font-size: 1rem;
+  }
+  
+  .homepage .description {
+    font-size: 0.8rem;
+  }
+}

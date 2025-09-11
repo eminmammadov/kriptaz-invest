@@ -7,27 +7,18 @@
 }
 
 .container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.insightsContent {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-/* Section Header */
-.header {
-  text-align: center;
+.insightsHeader {
   margin-bottom: 4rem;
-}
-
-.title {
-  font-family: var(--font-header) !important;
-  font-size: 2.75rem;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--color-primary-black) !important;
-  margin: 0 auto;
-  letter-spacing: -0.02em;
-  text-align: center;
-  max-width: 600px;
 }
 
 /* Articles Grid */
@@ -120,28 +111,6 @@
   text-align: center;
 }
 
-.exploreBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  background-color: var(--color-primary-black);
-  color: var(--color-white);
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  min-width: 90px;
-  font-family: var(--font-gellix) !important;
-  border: none;
-  cursor: pointer;
-}
-
-.exploreBtn:hover {
-  color: var(--color-primary-black);
-  background-color: var(--color-accent-green);
-}
 
 /* Responsive Design */
 
@@ -202,11 +171,6 @@
     font-size: 0.8125rem;
   }
   
-  .exploreBtn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    min-width: 90px;
-  }
 }
 
 /* Small mobile */
@@ -240,18 +204,11 @@
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .exploreBtn {
-    transition: none;
-  }
-  
-  .exploreBtn:hover {
-    transform: none;
-  }
+  /* No specific styles needed for Button component */
 }
 
 /* Focus states */
-.articleCard:focus,
-.exploreBtn:focus {
+.articleCard:focus {
   outline: 2px solid var(--color-accent-green);
   outline-offset: 2px;
 }

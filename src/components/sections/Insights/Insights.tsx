@@ -1,15 +1,28 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { Article } from '@/lib/articles/articles';
+import { Titles } from '@/components/ui/Titles';
+import { Button } from '@/components/ui/Button';
+import { InsightsCard } from '@/components/ui/InsightsCard';
 import styles from './Insights.module.css';
 
 interface InsightsProps {
   articles: Article[];
   className?: string;
 }
+
+// Centralized text content
+const INSIGHTS_TEXT = {
+  title: 'Resources See the Latest from Invest Founders',
+  exploreButton: 'Explore Insights'
+} as const;
+
+// Configuration constants
+const INSIGHTS_CONFIG = {
+  maxArticles: 4,
+  descriptionLimit: 140
+} as const;
 
 /**
  * Insights section component for homepage
@@ -19,68 +32,39 @@ const Insights: React.FC<InsightsProps> = ({
   articles,
   className = ''
 }) => {
-  // Debug log
-  console.log('Insights component - articles:', articles);
-  
-  // Take only the first 4 articles for homepage
-  const displayArticles = articles.slice(0, 4);
-
   // If no articles, don't render the section
   if (!articles || articles.length === 0) {
-    console.log('No articles found, not rendering Insights section');
     return null;
   }
 
   return (
     <section className={`${styles.insightsSection} ${className}`}>
       <div className={styles.container}>
-        {/* Section Header */}
-        <div className={styles.header}>
-          <h2 className={styles.title}>Resources See the Latest from Invest Founders</h2>
-        </div>
+        <div className={styles.insightsContent}>
+          {/* Header Section */}
+          <div className={styles.insightsHeader}>
+            <Titles variant="dark">{INSIGHTS_TEXT.title}</Titles>
+          </div>
 
-        {/* Articles Grid */}
-        <div className={styles.articlesGrid}>
-          {displayArticles.map((article) => (
-            <Link 
-              key={article.id} 
-              href={`/insights/${article.slug}`} 
-              className={styles.articleCard}
-            >
-              {/* Card Header with Image/Logo */}
-              <div className={styles.cardHeader}>
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={article.imagePath}
-                    alt={article.title}
-                    fill
-                    className={styles.articleImage}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                </div>
-              </div>
+          {/* Articles Grid */}
+          <div className={styles.articlesGrid}>
+            {articles.slice(0, INSIGHTS_CONFIG.maxArticles).map((article) => (
+              <InsightsCard 
+                key={article.id} 
+                article={article}
+                variant="homepage"
+                showDescription={true}
+                descriptionLimit={INSIGHTS_CONFIG.descriptionLimit}
+              />
+            ))}
+          </div>
 
-              {/* Card Content */}
-              <div className={styles.cardContent}>
-                <div className={styles.metadata}>
-                  {article.category} • {article.date}
-                </div>
-                <h3 className={styles.articleTitle}>
-                  {article.title}
-                </h3>
-                <p className={styles.excerpt}>
-                  {article.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Explore Button */}
-        <div className={styles.exploreButton}>
-          <Link href="/insights" className={styles.exploreBtn}>
-            Explore Insights
-          </Link>
+          {/* Explore Button */}
+          <div className={styles.exploreButton}>
+            <Button href="/insights" variant="secondary" size="medium">
+              {INSIGHTS_TEXT.exploreButton}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

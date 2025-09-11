@@ -1,0 +1,216 @@
+/* Assets Section Styles */
+
+.assetsSection {
+  background-color: var(--color-white);
+  padding: 6rem 0;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Left Side - Information Block */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  margin: 0;
+  max-width: 500px;
+}
+
+.description {
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.visitButton {
+  align-self: flex-start;
+}
+
+/* Right Side - Assets List */
+.assetsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.assetItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.assetItem:last-child {
+  border-bottom: none;
+}
+
+.assetInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.assetIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--color-light-gray);
+  padding: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.assetDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.assetName {
+  font-family: var(--font-gellix) !important;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary-black);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.assetFullName {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: var(--color-gray-dark);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.apyInfo {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.apyItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.apyValue {
+  font-family: var(--font-gellix) !important;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary-black);
+  line-height: 1.2;
+}
+
+.apyLabel {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: var(--color-gray-dark);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    gap: 3rem;
+  }
+  
+  .apyInfo {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .assetsSection {
+    padding: 4rem 0;
+  }
+  
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .infoBlock {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .title, .description {
+    max-width: 550px
+  }
+  
+  .visitButton {
+    align-self: center;
+  }
+  
+  .assetItem {
+    padding: 1.25rem 0;
+  }
+  
+  .assetInfo {
+    gap: 0.75rem;
+  }
+  
+  .assetIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .assetName {
+    font-size: 1.125rem;
+  }
+  
+  .assetFullName {
+    font-size: 0.8rem;
+  }
+  
+  .apyValue {
+    font-size: 1.125rem;
+  }
+  
+  .apyLabel {
+    font-size: 0.7rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .assetItem {
+    transition: none;
+  }
+}

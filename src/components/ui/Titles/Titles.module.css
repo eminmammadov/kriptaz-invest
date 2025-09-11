@@ -38,6 +38,6 @@
 /* Extra small screens */
 @media (max-width: 395px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }

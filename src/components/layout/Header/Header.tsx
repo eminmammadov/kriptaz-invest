@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Logo from './Logo/Logo';
 import Navigation from './Navigation/Navigation';
-import HeaderButtons from './HeaderButtons/HeaderButtons';
+import { Button } from '@/components/ui/Button';
 import { HeaderProps, NavigationItem } from '@/lib/types/header';
 import styles from './Header.module.css';
 
@@ -23,7 +23,6 @@ const defaultNavigationItems: NavigationItem[] = [
 const Header: React.FC<HeaderProps> = ({
   className = '',
   navigationItems = defaultNavigationItems,
-  onDonateClick,
   onJoinClick,
   onLogoClick
 }) => {
@@ -47,17 +46,7 @@ const Header: React.FC<HeaderProps> = ({
     setIsMobileMenuOpen(false);
   };
 
-  const handleDonateClick = () => {
-    // Handle donate button click - can be external link or internal page
-    if (onDonateClick) {
-      onDonateClick();
-    } else {
-      // Default behavior - navigate to portfolio page
-      router.push('/portfolio');
-    }
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-  };
+  // handleDonateClick removed - no longer needed
 
   const handleJoinClick = () => {
     // Handle join button click - can be external link or internal page
@@ -95,22 +84,28 @@ const Header: React.FC<HeaderProps> = ({
           />
 
           {/* Desktop Header Buttons */}
-          <HeaderButtons
-            onDonateClick={handleDonateClick}
-            onJoinClick={handleJoinClick}
-            className={styles.buttonsContainer}
-          />
+          <div className={styles.buttonsContainer}>
+            <Button
+              onClick={handleJoinClick}
+              variant="primary"
+              size="medium"
+              className={styles.desktopJoinButton}
+            >
+              Join System
+            </Button>
+          </div>
 
           {/* Mobile Buttons Group - JOIN and Hamburger Menu */}
           <div className={styles.mobileButtonsGroup}>
             {/* Mobile Join Button - Visible only on mobile */}
-            <button
+            <Button
               onClick={handleJoinClick}
+              variant="primary"
+              size="medium"
               className={styles.mobileJoinButton}
-              aria-label="Join our community"
             >
-              Join
-            </button>
+              Join System
+            </Button>
 
             {/* Mobile Menu Button - 2-line hamburger with X animation */}
             <button
@@ -136,15 +131,6 @@ const Header: React.FC<HeaderProps> = ({
                   items={navigationItems}
                   onItemClick={handleNavigationItemClick}
                   className="mobileNavigation"
-                />
-              </div>
-
-              {/* Mobile Action Buttons */}
-              <div className={styles.mobileButtonsContainer}>
-                <HeaderButtons
-                  onDonateClick={handleDonateClick}
-                  onJoinClick={handleJoinClick}
-                  isMobile={true}
                 />
               </div>
             </nav>

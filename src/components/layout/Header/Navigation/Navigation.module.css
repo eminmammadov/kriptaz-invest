@@ -22,20 +22,20 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem; /* Tighter gap for cleaner appearance */
-  font-family: var(--font-header);
+  font-family: var(--font-gellix) !important;
 }
 
 /* Desktop navigation button styles */
 .navigationButton {
-  color: white;
+  color: var(--color-white);
   background: none;
   border: none;
-  font-weight: 900; /* Updated to use Gellix SemiBold for better visibility */
+  font-weight: 500; /* Updated to use Gellix SemiBold for better visibility */
   font-size: 0.85rem; /* Increased from 0.8125rem for better readability */
   letter-spacing: 0.02em;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  font-family: var(--font-header) !important;
+  font-family: var(--font-gellix) !important;
   padding: 0.5rem 1rem; /* Increased padding for better click targets */
   white-space: nowrap;
   border-radius: 0.25rem;
