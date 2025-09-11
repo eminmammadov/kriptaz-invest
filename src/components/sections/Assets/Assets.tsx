@@ -54,10 +54,10 @@ const assetsData: Asset[] = [
     borrowAPY: '5.08%'
   },
   {
-    id: 'ena',
-    name: 'ENA',
-    fullName: 'Ethena',
-    icon: 'images/icons/ena.svg',
+    id: 'avnt',
+    name: 'AVNT',
+    fullName: 'Avantis',
+    icon: 'images/icons/avnt.svg',
     lendAPY: '4.37%',
     borrowAPY: '5.13%'
   }

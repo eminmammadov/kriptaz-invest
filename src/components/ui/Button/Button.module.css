@@ -63,12 +63,6 @@
   color: inherit;
 }
 
-/* Focus states for accessibility */
-.button:focus {
-  outline: 2px solid var(--color-accent-green);
-  outline-offset: 2px;
-}
-
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .button {
