@@ -23,7 +23,6 @@ const defaultNavigationItems: NavigationItem[] = [
 const Header: React.FC<HeaderProps> = ({
   className = '',
   navigationItems = defaultNavigationItems,
-  onJoinClick,
   onLogoClick
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -55,17 +54,6 @@ const Header: React.FC<HeaderProps> = ({
 
   // handleDonateClick removed - no longer needed
 
-  const handleJoinClick = () => {
-    // Handle join button click - can be external link or internal page
-    if (onJoinClick) {
-      onJoinClick();
-    } else {
-      // Default behavior - navigate to join/signup page
-      router.push('/join');
-    }
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -96,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Desktop Header Buttons */}
           <div className={styles.buttonsContainer}>
             <Button
-              onClick={handleJoinClick}
+              href="/join"
               variant={isHomePage ? "primary" : "secondary"}
               size="medium"
               className={styles.desktopJoinButton}
@@ -109,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({
           <div className={styles.mobileButtonsGroup}>
             {/* Mobile Join Button - Visible only on mobile */}
             <Button
-              onClick={handleJoinClick}
+              href="/join"
               variant={isHomePage ? "primary" : "secondary"}
               size="medium"
               className={styles.mobileJoinButton}

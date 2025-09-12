@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Logo from '@/components/layout/Header/Logo/Logo';
 import { Button } from '@/components/ui/Button';
 import { Titles } from '@/components/ui/Titles';
@@ -24,10 +25,15 @@ const JOIN_CONTENT = {
 const JoinHero: React.FC = () => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleLogin = () => {
     // Handle login logic here
     console.log('Login attempt:', { userId, password });
+  };
+
+  const handleLogoClick = () => {
+    router.push('/');
   };
 
   return (
@@ -51,7 +57,7 @@ const JoinHero: React.FC = () => {
         <div className={styles.contentContainer}>
           <div className={styles.logoSection}>
             <Logo
-              onClick={() => {}}
+              onClick={handleLogoClick}
               variant="secondary"
             />
           </div>
