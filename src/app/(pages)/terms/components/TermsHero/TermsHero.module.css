@@ -1,0 +1,268 @@
+/* ============================================================================
+   TERMS HERO COMPONENT STYLES - REFERENCE DESIGN
+   ============================================================================ */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contentSection {
+  display: flex;
+  min-height: 80vh;
+  background-color: var(--color-white);
+  gap: 4rem;
+}
+
+/* ============================================================================
+   LEFT COLUMN - TABLE OF CONTENTS
+   ============================================================================ */
+
+.leftColumn {
+  flex: 0 0 280px;
+  padding: 3rem 0;
+}
+
+.tableOfContents {
+  position: sticky;
+  top: 6rem;
+}
+
+.tocTitle {
+  font-family: var(--font-gellix) !important;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tocItem {
+  margin-bottom: 0.75rem;
+}
+
+.tocLink {
+  font-family: var(--font-gellix) !important;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.tocLink:hover {
+  color: var(--color-gold);
+}
+
+/* ============================================================================
+   RIGHT COLUMN - MAIN CONTENT
+   ============================================================================ */
+
+.rightColumn {
+  flex: 1;
+  padding: 3rem 0;
+  max-width: 800px;
+}
+
+.mainContent {
+  width: 100%;
+}
+
+.headerSection {
+  margin-bottom: 3rem;
+}
+
+.mainTitle {
+  font-family: var(--font-gellix) !important;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary-black);
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.lastRevised {
+  font-family: var(--font-gellix) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.contentBody {
+  font-family: var(--font-gellix) !important;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-gellix) !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary-black);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+}
+
+.subsection {
+  margin-bottom: 2rem;
+}
+
+.subsectionTitle {
+  font-family: var(--font-gellix) !important;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-primary-black);
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.paragraph {
+  font-family: var(--font-gellix) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-primary-black);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.bulletList {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.bulletItem {
+  font-family: var(--font-gellix) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-primary-black);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.contactLink {
+  font-family: var(--font-gellix) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--color-primary-black);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .contentSection {
+    gap: 5rem;
+  }
+  
+  .leftColumn {
+    flex: 0 0 320px;
+  }
+  
+  .rightColumn {
+    max-width: 900px;
+  }
+  
+  .mainTitle {
+    font-size: 3.5rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .contentSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .leftColumn {
+    flex: none;
+    padding: 2rem 0 0 0;
+  }
+  
+  .rightColumn {
+    flex: none;
+    padding: 0 0 2rem 0;
+  }
+  
+  .tableOfContents {
+    position: static;
+  }
+  
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  
+  .section {
+    margin-bottom: 2rem;
+  }
+  
+  .subsection {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .contentSection {
+    gap: 1.5rem;
+  }
+  
+  .leftColumn,
+  .rightColumn {
+    padding: 1.5rem 0;
+  }
+  
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+  
+  .subsectionTitle {
+    font-size: 1rem;
+  }
+  
+  .paragraph,
+  .bulletItem {
+    font-size: 0.875rem;
+  }
+  
+  .tocTitle,
+  .tocLink {
+    font-size: 0.75rem;
+  }
+}

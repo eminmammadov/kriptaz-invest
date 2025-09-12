@@ -29,14 +29,14 @@ const navigationMenu = [
     title: 'Auth',
     items: [
       { label: 'Join', href: '/join', external: false },
-      { label: 'Portfolio', href: '/portfolio', external: true },
+      { label: 'Portfolio', href: '/portfolio', external: false },
     ]
   },
   {
     title: 'Legal',
     items: [
       { label: 'Terms of Service', href: '/terms', external: false },
-      { label: 'Privacy Policy', href: '/privacy', external: true }
+      { label: 'Privacy Policy', href: '/privacy', external: false }
     ]
   }
 ];

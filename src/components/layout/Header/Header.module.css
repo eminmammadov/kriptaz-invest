@@ -15,7 +15,7 @@
 
 /* Header with background for non-home pages */
 .headerWithBackground {
-  background-color: var(--color-light-gray);
+  background-color: var(--color-white) !important;
 }
 
 .container {

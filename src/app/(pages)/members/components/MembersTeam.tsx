@@ -17,7 +17,7 @@ const MembersTeam: React.FC = () => {
     {
       id: '1',
       name: 'Emin Mammadov',
-      title: 'CEO/Founder at Invest Founders, Kriptaz',
+      title: 'Founder at Invest Founders',
       image: '/images/about/team/male.png',
       linkedin: 'https://www.linkedin.com/in/eminmammadov',
       twitter: 'https://x.com/eminmammadov'
