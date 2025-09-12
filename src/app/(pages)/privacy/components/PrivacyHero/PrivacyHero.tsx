@@ -185,7 +185,6 @@ const PrivacyHero: React.FC = () => {
         <div className={styles.rightColumn}>
           <div className={styles.mainContent}>
             <div className={styles.headerSection}>
-              <h1 className={styles.mainTitle}>{PRIVACY_CONTENT.pageTitle}</h1>
               <p className={styles.effectiveDate}>{PRIVACY_CONTENT.effectiveDate}</p>
             </div>
             

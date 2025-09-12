@@ -83,15 +83,6 @@
   margin-bottom: 3rem;
 }
 
-.mainTitle {
-  font-family: var(--font-gellix) !important;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-primary-black);
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
 
 .lastRevised {
   font-family: var(--font-gellix) !important;
@@ -190,9 +181,6 @@
     max-width: 900px;
   }
   
-  .mainTitle {
-    font-size: 3.5rem;
-  }
 }
 
 /* Tablet styles */
@@ -216,9 +204,6 @@
     position: static;
   }
   
-  .mainTitle {
-    font-size: 2.5rem;
-  }
   
   .section {
     margin-bottom: 2rem;
@@ -244,9 +229,6 @@
     padding: 1.5rem 0;
   }
   
-  .mainTitle {
-    font-size: 2rem;
-  }
   
   .sectionTitle {
     font-size: 1.25rem;

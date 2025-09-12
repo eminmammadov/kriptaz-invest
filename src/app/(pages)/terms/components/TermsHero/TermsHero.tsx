@@ -168,7 +168,6 @@ const TermsHero: React.FC = () => {
         <div className={styles.rightColumn}>
           <div className={styles.mainContent}>
             <div className={styles.headerSection}>
-              <h1 className={styles.mainTitle}>{TERMS_CONTENT.pageTitle}</h1>
               <p className={styles.lastRevised}>{TERMS_CONTENT.lastRevised}</p>
             </div>
             

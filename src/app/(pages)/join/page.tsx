@@ -1,11 +1,18 @@
+import React from 'react';
+import JoinHero from './components/JoinHero/JoinHero';
+
 export default function JoinPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900">
-          Join Now
-        </h1>
-      </div>
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100vw', 
+      height: '100vh', 
+      zIndex: 9999,
+      overflow: 'hidden'
+    }}>
+      <JoinHero />
     </div>
   );
 }

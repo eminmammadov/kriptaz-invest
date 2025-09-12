@@ -65,7 +65,7 @@
   padding: .34rem .7rem;
   border: none;
   background: rgba(255, 255, 255, 0.08);
-  color: white;
+  color: var(--color-white);
   font-family: var(--font-gellix) !important;
   font-size: 1rem;
   outline: none;
