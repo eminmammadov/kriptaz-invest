@@ -1,61 +1,33 @@
-/* Team Component Styles */
+/* ========================================
+   TEAM COMPONENT STYLES
+   ======================================== */
 
-.team {
-  margin-left: calc(-50vw + 50%);
-  background-color: var(--color-white);
-  color: var(--color-primary-black);
-  padding: 8rem 0;
-  position: relative;
-}
+/* ========================================
+   MAIN CONTAINER & LAYOUT
+   ======================================== */
 
 .container {
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.teamContent {
   max-width: 1600px;
   margin: 0 auto;
 }
 
-.headerSection {
-  text-align: center;
-  margin-bottom: 6rem;
+.contentSection {
+  background-color: var(--color-white);
+  margin: 0 calc(-50vw + 50%);
+  padding: 2rem 0;
+  width: 100vw;
 }
 
-.sectionLabel {
-  font-family: var(--font-primary);
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 1.5rem 0;
+.teamContent {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 }
 
-.title {
-  font-family: var(--font-header) !important;
-  font-size: 2.5rem;
-  font-weight: 400;
-  line-height: 1.1;
-  margin: 0;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: var(--color-primary-black);
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 3.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .title {
-    font-size: 4.5rem;
-  }
-}
+/* ========================================
+   TEAM GRID LAYOUT
+   ======================================== */
 
 .teamGrid {
   display: grid;
@@ -66,19 +38,9 @@
   max-width: 100%;
 }
 
-@media (min-width: 768px) {
-  .teamGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .teamGrid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-}
+/* ========================================
+   TEAM MEMBER CARDS
+   ======================================== */
 
 .teamMember {
   display: flex;
@@ -94,11 +56,9 @@
   transform: translateY(-8px);
 }
 
-@media (min-width: 1600px) {
-  .teamMember {
-    max-width: 360px;
-  }
-}
+/* ========================================
+   MEMBER IMAGE CONTAINER
+   ======================================== */
 
 .memberImageContainer {
   width: 100%;
@@ -108,30 +68,6 @@
   margin-bottom: 1.5rem;
   position: relative;
   background-color: var(--color-light-gray);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.teamMember:hover .memberImageContainer {
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.15),
-    0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 1600px) {
-  .memberImageContainer {
-    width: 360px;
-    height: 400px;
-    aspect-ratio: unset;
-  }
-}
-
-@media (max-width: 767px) {
-  .memberImageContainer {
-    border-radius: 8px;
-  }
 }
 
 .memberImage {
@@ -146,6 +82,10 @@
   transform: scale(1.1);
 }
 
+/* ========================================
+   MEMBER INFO SECTION
+   ======================================== */
+
 .memberInfo {
   display: flex;
   flex-direction: column;
@@ -155,7 +95,7 @@
 }
 
 .memberName {
-  font-family: var(--font-header) !important;
+  font-family: var(--font-gellix) !important;
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0;
@@ -164,20 +104,8 @@
   text-align: left;
 }
 
-@media (min-width: 768px) {
-  .memberName {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .memberName {
-    font-size: 1.1rem;
-  }
-}
-
 .memberTitle {
-  font-family: var(--font-primary);
+  font-family: var(--font-gellix) !important;
   font-size: 0.75rem;
   margin: 0;
   color: var(--color-primary-black);
@@ -188,11 +116,9 @@
   font-weight: 400;
 }
 
-@media (min-width: 768px) {
-  .memberTitle {
-    font-size: 0.9rem;
-  }
-}
+/* ========================================
+   SOCIAL LINKS
+   ======================================== */
 
 .socialLinks {
   display: flex;
@@ -220,7 +146,6 @@
   background-color: var(--color-gold);
   transform: translateY(-2px) scale(1.1);
   opacity: 1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .socialLink:focus {
@@ -233,25 +158,23 @@
   height: 14px;
 }
 
-/* Mobile-specific adjustments */
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ======================================== */
+
+/* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
-  .team {
-    padding: 4rem 0;
+  .memberImageContainer {
+    border-radius: 8px;
   }
+}
 
-  .headerSection {
-    margin-bottom: 4rem;
+/* Small Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0rem 1rem;
   }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .sectionLabel {
-    font-size: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
+  
   .teamGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem 1.5rem;
@@ -280,7 +203,63 @@
   }
 }
 
-/* Accessibility - Reduced motion support */
+/* Tablet (min-width: 640px) */
+@media (min-width: 640px) {
+  .container {
+    padding: 0rem 1rem;
+  }
+}
+
+/* Medium Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .memberName {
+    font-size: 1rem;
+  }
+
+  .memberTitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0rem 1rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .memberName {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large Desktop (min-width: 1600px) */
+@media (min-width: 1600px) {
+  .teamMember {
+    max-width: 360px;
+  }
+
+  .memberImageContainer {
+    width: 360px;
+    height: 400px;
+    aspect-ratio: unset;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & USER PREFERENCES
+   ======================================== */
+
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .socialLink {
     transition: none;

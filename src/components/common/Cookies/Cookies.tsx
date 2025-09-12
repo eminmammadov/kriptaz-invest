@@ -21,7 +21,7 @@ const Cookies: React.FC<CookiesProps> = ({
   message = DEFAULT_MESSAGE,
   buttonText = 'OK',
   autoShowDelay = 1000,
-  hideForHours = 6
+  hideForHours = 3
 }) => {
   const [bannerState, setBannerState] = useState<CookiesBannerState>({
     isVisible: false,

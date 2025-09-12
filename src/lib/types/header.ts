@@ -20,12 +20,7 @@ export interface NavigationProps {
   variant?: 'primary' | 'secondary';
 }
 
-export interface HeaderButtonsProps {
-  className?: string;
-  onDonateClick?: () => void;
-  onJoinClick?: () => void;
-  isMobile?: boolean;
-}
+/* HeaderButtonsProps removed - HeaderButtons component no longer exists */
 
 export interface HeaderProps {
   className?: string;

@@ -17,7 +17,7 @@ const defaultNavigationItems: NavigationItem[] = [
 ];
 
 /**
- * Main Header component that combines Logo, Navigation, and HeaderButtons
+ * Main Header component that combines Logo and Navigation
  * Responsive design with mobile hamburger menu
  */
 const Header: React.FC<HeaderProps> = ({

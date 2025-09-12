@@ -1,0 +1,238 @@
+/* ============================================================================
+   CONTACT HERO COMPONENT STYLES - REFERENCE DESIGN
+   ============================================================================ */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contentSection {
+  display: flex;
+  min-height: 80vh;
+  background-color: var(--color-white);
+}
+
+/* ============================================================================
+   LEFT COLUMN - TEXT CONTENT
+   ============================================================================ */
+
+.leftColumn {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.textContent {
+  width: 100%;
+  max-width: 600px;
+}
+
+.description {
+  font-family: var(--font-gellix);
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0 0 3rem 0;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* ============================================================================
+   CONTACT GRID
+   ============================================================================ */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+  max-width: 600px;
+}
+
+.contactColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contactCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryTitle {
+  font-family: var(--font-gellix) !important;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contactItem {
+  font-family: var(--font-gellix) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-primary-black);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contactLink {
+  font-family: var(--font-gellix);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-primary-black);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--color-gold);
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+  color: var(--color-primary-black);
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  color: var(--color-gold);
+}
+
+/* ============================================================================
+   RIGHT COLUMN - IMAGE/PHOTOGRAPHIC ELEMENT
+   ============================================================================ */
+
+.rightColumn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .leftColumn,
+  .rightColumn {
+    padding: 4rem 0;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .contentSection {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .leftColumn {
+    flex: none;
+    padding: 2rem 0;
+  }
+  
+  .rightColumn {
+    flex: none;
+    padding: 2rem 0;
+    min-height: 300px;
+  }
+  
+  .description {
+    margin-bottom: 2rem;
+  }
+  
+  .contactGrid {
+    gap: 2rem 3rem;
+  }
+  
+  .contactColumn {
+    gap: 2rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .leftColumn,
+  .rightColumn {
+    padding: 1.5rem 0;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contactColumn {
+    gap: 1.5rem;
+  }
+  
+  .contactCategory {
+    gap: 0.5rem;
+  }
+  
+  .rightColumn {
+    min-height: 250px;
+  }
+}

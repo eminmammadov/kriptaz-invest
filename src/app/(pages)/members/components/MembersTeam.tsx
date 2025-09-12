@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import PageHeader from '@/components/ui/PageHeader';
 import styles from './MembersTeam.module.css';
 
 interface TeamMember {
@@ -11,17 +12,13 @@ interface TeamMember {
   twitter?: string;
 }
 
-interface MembersTeamProps {
-  className?: string;
-}
-
-const MembersTeam: React.FC<MembersTeamProps> = ({ className = '' }) => {
+const MembersTeam: React.FC = () => {
   const teamMembers: TeamMember[] = [
     {
       id: '1',
       name: 'Emin Mammadov',
-      title: 'CEO & Founder at Invest Founders, Kriptaz Blockchain',
-      image: '/images/about/team/emin-mammadov.webp',
+      title: 'CEO/Founder at Invest Founders, Kriptaz',
+      image: '/images/about/team/male.png',
       linkedin: 'https://www.linkedin.com/in/eminmammadov',
       twitter: 'https://x.com/eminmammadov'
     },
@@ -29,14 +26,14 @@ const MembersTeam: React.FC<MembersTeamProps> = ({ className = '' }) => {
       id: '2',
       name: 'Naila Jabrailova',
       title: 'Project Manager',
-      image: '/images/about/team/naila-jabrailova.webp',
+      image: '/images/about/team/female.png',
       linkedin: '#'
     },
     {
       id: '3',
       name: 'Kamran Nabataliyev',
       title: 'Economist & Finance Analysis',
-      image: '/images/about/team/kamran-nabataliyev.webp',
+      image: '/images/about/team/male.png',
       linkedin: '#',
       twitter: '#'
     },
@@ -44,68 +41,55 @@ const MembersTeam: React.FC<MembersTeamProps> = ({ className = '' }) => {
       id: '4',
       name: 'Idris Gurbanov',
       title: 'System Administrator',
-      image: '/images/about/team/idris-gurbanov.webp',
+      image: '/images/about/team/male.png',
       linkedin: '#'
     },
     {
       id: '5',
-      name: 'Rashad Ovchuyev',
-      title: 'Investor',
-      image: '/images/about/team/rashad-ovchuyev.webp',
+      name: 'Seymur Suleyman',
+      title: 'ESTG-Civil Engineering in Master',
+      image: '/images/about/team/male.png',
       linkedin: '#',
       twitter: '#'
     },
     {
       id: '6',
-      name: 'Seymur Suleyman',
-      title: 'ESTG-Civil Engineering in Master',
-      image: '/images/about/team/seymur-suleyman.webp',
+      name: 'Chichek Agaverdiyeva',
+      title: 'Account Manager',
+      image: '/images/about/team/female.png',
       linkedin: '#',
       twitter: '#'
     },
     {
       id: '7',
-      name: 'Chichek Agaverdiyeva',
-      title: 'Account Manager',
-      image: '/images/about/team/chichek-agaverdiyeva.webp',
+      name: 'Miri Surname',
+      title: 'Crypto Trader',
+      image: '/images/about/team/male.png',
       linkedin: '#',
       twitter: '#'
     },
     {
       id: '8',
-      name: 'Miri Surname',
-      title: 'Crypto Trader',
-      image: '/images/about/team/miri-surname.webp',
-      linkedin: '#',
-      twitter: '#'
-    },
-    {
-      id: '9',
       name: 'Seymur Safaraliyev',
       title: 'Brand Manager',
-      image: '/images/about/team/seymur-safaraliyev.webp',
+      image: '/images/about/team/male.png',
       linkedin: '#'
     },
     {
-      id: '10',
+      id: '9',
       name: 'Farid Mammadov',
-      title: 'Deejay',
-      image: '/images/about/team/farid-mammadov.webp',
+      title: 'Investor',
+      image: '/images/about/team/male.png',
       linkedin: '#'
     }
   ];
 
   return (
-    <section className={`${styles.team} ${className}`} role="region" aria-labelledby="team-section-title">
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <PageHeader title="Our Members" />
+      
+      <div className={styles.contentSection}>
         <div className={styles.teamContent}>
-          <div className={styles.headerSection}>
-            <p className={styles.sectionLabel}>Our Members</p>
-            <h2 id="team-section-title" className={styles.title}>
-              We are the right team<br />for the job
-            </h2>
-          </div>
-
           <div className={styles.teamGrid} role="list" aria-label="Leadership team members">
             {teamMembers.map((member) => (
               <div key={member.id} className={styles.teamMember} role="listitem">
@@ -156,7 +140,7 @@ const MembersTeam: React.FC<MembersTeamProps> = ({ className = '' }) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
