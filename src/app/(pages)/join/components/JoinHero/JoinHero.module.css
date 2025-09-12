@@ -162,12 +162,12 @@
   
   .leftColumn {
     flex: none;
-    height: 40vh;
+    height: 20vh;
   }
   
   .rightColumn {
     flex: none;
-    height: 60vh;
+    height: 80vh;
     padding: 3rem 2rem;
   }
   
